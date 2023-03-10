@@ -13,6 +13,18 @@ const ObtenerUsuarios = async () => {
     return response?.data ? response?.data : null;
 }
 
+const ObtenerUsuario = async (id_user) => {
+    let response;
+
+    try {
+        response = await axios.get(BaseUrlUser + '/' + id_user);
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
+
 const CrearUser = async (nombre, email, pass) => {
     let response;
     console.log(nombre);
@@ -27,4 +39,18 @@ const CrearUser = async (nombre, email, pass) => {
     return response?.data ? response?.data : null
 }
 
-export { ObtenerUsuarios, CrearUser };
+const getLogin = async (email, pass) => {
+    let response;
+    console.log(email);
+    console.log(pass);
+    try {
+        response = await axios.get(BaseUrlUser + '/' + email + '/' + pass);
+        console.log(response);
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
+
+export { ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin};
