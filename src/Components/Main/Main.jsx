@@ -37,7 +37,7 @@ const Main = () => {
                     <div className="col-3" >
                         <div class="card">
                             <div class="card-body">
-                            <h5 >crear Pelis </h5>
+                            <h5 >Register </h5>
                             <h4 > </h4>
                             <button onClick={() => {
                               
@@ -50,7 +50,7 @@ const Main = () => {
                     <div className="col-3" >
                         <div class="card">
                             <div class="card-body">
-                            <h5 >crear Pelis </h5>
+                            <h5 >User </h5>
                             <h4 > </h4>
                             <button>crear Pelis</button>
                             </div>
@@ -59,7 +59,7 @@ const Main = () => {
                     <div className="col-3" >
                         <div class="card">
                             <div class="card-body">
-                            <h5 >crear Pelis </h5>
+                            <h5 >Admin </h5>
                             <h4 > </h4>
                             <button>crear Pelis</button>
                             </div>
@@ -69,6 +69,46 @@ const Main = () => {
                         <div class="card">
                             <div class="card-body">
                             <h5 >crear Pelis </h5>
+                            <h4 > </h4>
+                            <button>crear Pelis</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-3" >
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 >User </h5>
+                            <h4 > </h4>
+                            <button onClick={() => {
+                              
+                               
+                                                                               
+                            }}>crear Pelis</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-3" >
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 >Pelicula </h5>
+                            <h4 > </h4>
+                            <button>crear Pelis</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-3" >
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 >Busqueda</h5>
+                            <h4 > </h4>
+                            <button>crear Pelis</button>
+                            </div>
+                        </div>             
+                    </div>
+                    <div className="col-3" >
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 >Login </h5>
                             <h4 > </h4>
                             <button>crear Pelis</button>
                             </div>
