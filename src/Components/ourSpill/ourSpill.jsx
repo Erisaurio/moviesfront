@@ -3,21 +3,11 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import Logo from '../Assets/Logo.png';
 import LogoW from '../Assets/Logow.png';
-{/*import {Search, SearchIcon, SearchIconWrapper, StyledInputBase} from '@mui/icons-material/Search';*/}
 
-const Home = () => {
+const ourSpills = () => {
     return<>
         <header className="Nav">
             <img src={Logo} className="logo"/>
-            {/*<Search>
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>*/}
             <div className='icons'>
                 <i className="fa-solid fa-user"></i>
                 <i className="fa-solid fa-clapperboard"></i>
@@ -38,4 +28,4 @@ const Home = () => {
     </>
 }
 
-export default Home;
+export default ourSpills;
