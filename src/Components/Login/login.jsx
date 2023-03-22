@@ -90,62 +90,7 @@ const Login = () => {
         <div className='login container-fuid d-flex flex-column justify-content-center align-items-center p-0'>
             <div className='row w-50 d-flex justify-content-center tarjeta-login m-0'>
 
-                <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
-                    <form className="row d-flex flex-column g-3">
-                        <div className="col-auto text-center">
-                            <label className='text-login'>Register</label>
-                        </div>
-                        <div className="col-auto text-center">
-                            
-                            <input
-                                
-                                type="text"
-                                className="input-login"
-                                id="username"
-                                placeholder="Username"
-                                onChange={e => setUserName(e.target.value)} value={UserName}
-                                 />
-
-                        </div>
-                        <div className="col-auto text-center">
-
-                            <input
-                                
-                                type="text"
-                                className="input-login"
-                                id="Email"
-                                placeholder="Email"
-                                onChange={e => setUserEmail(e.target.value)} value={UserEmail}
-                                />
-
-                        </div>
-                        <div className="col-auto text-center">
-
-                            <input
-                                
-                                type="password"
-                                className="input-login"
-                                id="password"
-                                placeholder="Password"
-                                onChange={e => setUserPass(e.target.value)} value={UserPass}
-                                 />
-
-                        </div>
-                       
-                        <div className="col-12 d-flex flex-column">
-
-                            <button  type="button" class="btn btn-primary" onClick={() => {
-                              
-                              CrearUser(UserName,UserEmail,UserPass);
-                              showUsers();                                                   
-                            }}>Sigin</button>
-
-                            {/*<Link to="/register">
-                                ¿No tienes cuenta? Registrate
-                            </Link> */}
-                        </div>
-                    </form>
-                </div>
+             
                 
                 <div className='col-12 mt-3 mb-2 p-0 d-flex justify-content-center align-items-center'>
                     <form className="row d-flex flex-column g-3">
@@ -191,7 +136,10 @@ const Login = () => {
                             </Link> */}
                         </div>
                     </form>
+                    
                 </div>
+                <br />
+                    <a onClick={() => {navigate('/Register');}}> Register </a>
 
                 <div class="col-md-12 mt-3">
                    <div className="row">
@@ -206,7 +154,7 @@ const Login = () => {
                                
                                 <div class="card">
                                   <div class="card-body">
-                                    <h5 >Name: {User.nombre}</h5>
+                                    <h5 >Name: {User.name}</h5>
                                     <h4 >email: {User.email}</h4>
                                     <p> pass: {User.password}</p>
                                     <p> role: {User.role} </p>
@@ -228,7 +176,7 @@ const Login = () => {
                                
                                 <div class="card">
                                   <div class="card-body">
-                                    <h5 >Name: {dataUser.nombre}</h5>
+                                    <h5 >Name: {dataUser.name}</h5>
                                     <h4 >email: {dataUser.email}</h4>
                                     <p> pass: {dataUser.password}</p>
                                     <p> role: {dataUser.role} </p>

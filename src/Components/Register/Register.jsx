@@ -117,14 +117,14 @@ const Register = () => {
                               CrearUser(UserName,UserEmail,UserPass);
                               showUsers();                                                   
                             }}>Sigin</button>
-
+                            
                             {/*<Link to="/register">
                                 ¿No tienes cuenta? Registrate
                             </Link> */}
                         </div>
                     </form>
                 </div>
-                
+                <a onClick={() => {navigate('/');}}> Login </a>
 
                 <div class="col-md-12 mt-3">
                    <div className="row">
@@ -139,7 +139,7 @@ const Register = () => {
                                
                                 <div class="card">
                                   <div class="card-body">
-                                    <h5 >Name: {User.nombre}</h5>
+                                    <h5 >Name: {User.name}</h5>
                                     <h4 >email: {User.email}</h4>
                                     <p> pass: {User.password}</p>
                                     <p> role: {User.role} </p>
@@ -149,7 +149,7 @@ const Register = () => {
                         </div>
                       ) 
                     }
-                </div>
+                    </div>
 
                 </div>
 
@@ -161,7 +161,7 @@ const Register = () => {
                                
                                 <div class="card">
                                   <div class="card-body">
-                                    <h5 >Name: {dataUser.nombre}</h5>
+                                    <h5 >Name: {dataUser.name}</h5>
                                     <h4 >email: {dataUser.email}</h4>
                                     <p> pass: {dataUser.password}</p>
                                     <p> role: {dataUser.role} </p>
