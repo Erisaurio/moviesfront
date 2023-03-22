@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { BaseUrlUser } from './constantes';
+import { BaseUrlGenero } from './constantes';
 
-const ObtenerUsuarios = async () => {
+const ObtenerGeneros = async () => {
     let response;
 
     try {
-        response = await axios.get(BaseUrlUser);
+        response = await axios.get(BaseUrlGenero);
     } catch (e) {
         throw new Error(e.message)
     }
@@ -17,7 +17,7 @@ const ObtenerUsuario = async (id_user) => {
     let response;
 
     try {
-        response = await axios.get(BaseUrlUser + '/' + id_user);
+        response = await axios.get(BaseUrlGenero + '/' + id_user);
     } catch (e) {
         throw new Error(e.message)
     }
@@ -31,7 +31,7 @@ const CrearUser = async (nombre, email, pass) => {
     console.log(email);
     console.log(pass);
     try {
-        response = await axios.post(BaseUrlUser, {  name: nombre, email: email, password: pass  });
+        response = await axios.post(BaseUrlGenero, {  name: nombre, email: email, password: pass  });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -45,7 +45,7 @@ const EditUser = async (id_user,nombre, email, pass) => {
     console.log(email);
     console.log(pass);
     try {
-        response = await axios.put(BaseUrlUser + '/' + id_user, {  name: nombre, email: email, password: pass  });
+        response = await axios.put(BaseUrlGenero + '/' + id_user, {  name: nombre, email: email, password: pass  });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -53,18 +53,6 @@ const EditUser = async (id_user,nombre, email, pass) => {
     return response?.data ? response?.data : null
 }
 
-const getLogin = async (email, pass) => {
-    let response;
-    console.log(email);
-    console.log(pass);
-    try {
-        response = await axios.get(BaseUrlUser + '/' + email + '/' + pass);
-        console.log(response);
-    } catch (e) {
-        throw new Error(e.message)
-    }
-    
-    return response?.data ? response?.data : null;
-}
 
-export { ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin,EditUser};
+
+export { ObtenerGeneros };

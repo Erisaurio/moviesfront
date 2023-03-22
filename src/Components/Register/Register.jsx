@@ -1,20 +1,19 @@
-import './login.css'
+import './Register.css'
+import Header from "../Header/Header";
+import Footer from '../Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 import {useState, useRef, useEffect} from "react"
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
 
-import { useNavigate } from 'react-router-dom';
-
-const Login = () => {
+const Register = () => {
+    
     const navigate = useNavigate();
 
     const [UserName, setUserName] = useState('');
     const [UserEmail, setUserEmail] = useState('');
     const [UserPass, setUserPass] = useState('');
    
-    const [LogEmail, setLogEmail] = useState('');
-    const [LogPass, setLogPass] = useState('');
-
     const [dataUsers, setDataUsers] = useState([]);
     const [dataUser, setDataUser] = useState([]);
     
@@ -53,28 +52,7 @@ const Login = () => {
         }
     }
 
-    const IniciarSesion = async (LogEmail,LogPass) => {
-        
-        try {
-            getLogin(LogEmail,LogPass)
-            .then((response) => {
-                console.log(response);
-                localStorage.setItem('UserName', response.data.name);
-                localStorage.setItem('UserId', response.data._id);
-                console.log(localStorage.getItem("UserName"));       
-                console.log(localStorage.getItem('UserId').toString());     
-                alert("Inicio de sesion exitoso");   
-                navigate('/Main');  
-            })
-            .catch((error) => {
-                console.log(error);
-                //alert("Credenciales incorrectas");
-            });    
-        } catch (e) {
-            console.log(e);
-            //alert("Fallo de login");
-        }
-    }
+ 
 
     useEffect(() => {
         
@@ -90,23 +68,32 @@ const Login = () => {
         <div className='login container-fuid d-flex flex-column justify-content-center align-items-center p-0'>
             <div className='row w-50 d-flex justify-content-center tarjeta-login m-0'>
 
-             
-                
-                <div className='col-12 mt-3 mb-2 p-0 d-flex justify-content-center align-items-center'>
+                <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
                     <form className="row d-flex flex-column g-3">
                         <div className="col-auto text-center">
-                            <label className='text-login'>Login</label>
+                            <label className='text-login'>Register</label>
                         </div>
+                        <div className="col-auto text-center">
+                            
+                            <input
+                                
+                                type="text"
+                                className="input-login"
+                                id="username"
+                                placeholder="Username"
+                                onChange={e => setUserName(e.target.value)} value={UserName}
+                                 />
 
+                        </div>
                         <div className="col-auto text-center">
 
                             <input
                                 
                                 type="text"
                                 className="input-login"
-                                id="Email_log"
+                                id="Email"
                                 placeholder="Email"
-                                onChange={e => setLogEmail(e.target.value)} value={LogEmail}
+                                onChange={e => setUserEmail(e.target.value)} value={UserEmail}
                                 />
 
                         </div>
@@ -116,9 +103,9 @@ const Login = () => {
                                 
                                 type="password"
                                 className="input-login"
-                                id="password_log"
+                                id="password"
                                 placeholder="Password"
-                                onChange={e => setLogPass(e.target.value)} value={LogPass}
+                                onChange={e => setUserPass(e.target.value)} value={UserPass}
                                  />
 
                         </div>
@@ -127,19 +114,17 @@ const Login = () => {
 
                             <button  type="button" class="btn btn-primary" onClick={() => {
                               
-                              IniciarSesion(LogEmail,LogPass);
-                                                                               
-                            }}>log</button>
-
+                              CrearUser(UserName,UserEmail,UserPass);
+                              showUsers();                                                   
+                            }}>Sigin</button>
+                            
                             {/*<Link to="/register">
                                 ¿No tienes cuenta? Registrate
                             </Link> */}
                         </div>
                     </form>
-                    
                 </div>
-                <br />
-                    <a onClick={() => {navigate('/Register');}}> Register </a>
+                <a onClick={() => {navigate('/');}}> Login </a>
 
                 <div class="col-md-12 mt-3">
                    <div className="row">
@@ -164,7 +149,7 @@ const Login = () => {
                         </div>
                       ) 
                     }
-                </div>
+                    </div>
 
                 </div>
 
@@ -194,4 +179,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Register;

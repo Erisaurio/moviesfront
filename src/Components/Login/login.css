@@ -1,0 +1,9 @@
+
+a{
+  color:grey;
+}
+
+a:hover{
+  color:rgba(74, 138, 255, 0.644);
+  cursor: pointer;
+}
