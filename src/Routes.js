@@ -8,6 +8,7 @@ import Home from './Components/Home/Home';
 import User from './Components/User/User';
 import Movie from './Components/Movie/Movie';
 import NewMovie from './Components/NewMovie/NewMovie';
+import Peli from './Components/Peli/Peli';
 import Error from './Components/Error/Error';
 import Plataforma from './Components/Plataforma/plataforma'
 import Errror from './Components/ourSpill/ourSpill';
@@ -25,7 +26,8 @@ export default function Router(){
            <Route path='/Home' element={<Home/>}/>
            <Route path='/User' element={ <User />}/>
            <Route path='/Admin' />
-           <Route path='/NewMovie' element={ <NewMovie />}/>      
+           <Route path='/NewMovie' element={ <NewMovie />}/>    
+           <Route path='/Peli' element={ <Peli />}/>    
            <Route path='/Busqueda' />
            <Route path='/DetallePelicula/:Name' element={ <Movie />}/>
            <Route path='*' element={ <Error />}/>

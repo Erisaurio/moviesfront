@@ -1,5 +1,4 @@
 import '../Assets/NavYFooter.css'
-import './Home.css'
 import * as React from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import LogoW from '../Assets/Logow.png';
 import pelis from '../Assets/pinocho.jpeg';
 {/*import {Search, SearchIcon, SearchIconWrapper, StyledInputBase} from '@mui/icons-material/Search';*/}
 
-const Home = () => {
+const Peli = () => {
     const navigate = useNavigate();
 
     return<>
@@ -33,44 +32,6 @@ const Home = () => {
         </header>
         <div className="box">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste aliquam a unde placeat perferendis rerum. Quibusdam mollitia, velit, corporis eligendi veniam quam, consectetur deleniti sed debitis accusantium alias adipisci.</p>
-            <div className='cards'>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-                <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
-                        <img src={pelis}/>
-                        <label>Nombre de película</label>
-                    </div>
-                </a>
-            </div>
         </div>
         <footer className="end">
             <img src={LogoW} className="logow"/>
@@ -82,4 +43,4 @@ const Home = () => {
     </>
 }
 
-export default Home;
+export default Peli;

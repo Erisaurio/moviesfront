@@ -15,7 +15,7 @@ const Errror = () => {
                 <a onClick={() => {navigate('/Landing');}}><i class="fa-solid fa-power-off"></i></a>
                 <i className="fa-solid fa-user"></i>
                 <i className="fa-solid fa-clapperboard"></i>
-                <i className="fa-solid fa-house"></i>
+                <a onClick={() => {navigate('/Home');}}><i className="fa-solid fa-house"></i></a>
             </div>
         </header>
         <div className="box" >
