@@ -130,6 +130,7 @@ const Login = () => {
                               IniciarSesion(LogEmail,LogPass);
                                                                                
                             }}>log</button>
+                            
 
                             {/*<Link to="/register">
                                 ¿No tienes cuenta? Registrate
@@ -139,7 +140,8 @@ const Login = () => {
                     
                 </div>
                 <br />
-                    <a onClick={() => {navigate('/Register');}}> Register </a>
+                    
+                    <a onClick={() => {navigate('/Landing');}}> Landing </a>
 
                 <div class="col-md-12 mt-3">
                    <div className="row">

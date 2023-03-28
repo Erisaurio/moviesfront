@@ -3,6 +3,7 @@ import Login from './Components/Login/login';
 
 import Main from './Components/Main/Main';
 import Register from './Components/Register/Register';
+import Landing from './Components/Landing/Landing';
 import Home from './Components/Home/Home';
 import User from './Components/User/User';
 import Movie from './Components/Movie/Movie';
@@ -18,6 +19,7 @@ export default function Router(){
            <Route path='/' element={ <Login />}/>
            <Route path='/Plataforma' element={ <Plataforma />}/>
            <Route path='/Main' element={ <Main />}/>
+           <Route path='/Landing' element={ <Landing />}/>
            <Route path='/Register' element={ <Register />}/>
            <Route path='/Home' element={<Home/>}/>
            <Route path='/User' element={ <User />}/>
