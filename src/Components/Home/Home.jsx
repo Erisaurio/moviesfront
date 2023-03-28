@@ -1,11 +1,14 @@
 import '../Assets/NavYFooter.css'
 import * as React from "react";
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Logo from '../Assets/Logo.png';
 import LogoW from '../Assets/Logow.png';
 {/*import {Search, SearchIcon, SearchIconWrapper, StyledInputBase} from '@mui/icons-material/Search';*/}
 
 const Home = () => {
+    const navigate = useNavigate();
+
     return<>
         <header className="Nav">
             <img src={Logo} className="logo"/>
@@ -21,7 +24,8 @@ const Home = () => {
             <div className='icons'>
                 <i className="fa-solid fa-user"></i>
                 <i className="fa-solid fa-clapperboard"></i>
-                <i className="fa-solid fa-house"></i>
+                
+                <a onClick={() => {navigate('/Register');}}><i className="fa-solid fa-house"></i></a>
             </div>
         </header>
         <div className="box">

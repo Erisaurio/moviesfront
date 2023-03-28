@@ -196,12 +196,12 @@ const Register = () => {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
                 />
-            </Search>*/}
+            </Search>
             <div className='icons'>
                 <i className="fa-solid fa-user"></i>
                 <i className="fa-solid fa-clapperboard"></i>
                 <i className="fa-solid fa-house"></i>
-            </div>
+            </div>*/}
         </header>
         <div className="box">
           <section className="register-photo">
@@ -218,8 +218,9 @@ const Register = () => {
                 <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
                                                       CrearUser(UserName,UserEmail,UserPass);                                            
                                                     }}>Registrarse</button></div>
+                
+                <a className="already" onClick={() => {navigate('/Home');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>
 
-                <a className="already" href="#">¿Ya tienes una cuenta? Inicia sesión.</a>
               </form>
             </div>
           </section>
