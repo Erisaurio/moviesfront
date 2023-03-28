@@ -1,0 +1,55 @@
+.info{
+    display: flex;
+}
+
+.texto{
+    width:70%;
+    margin: 30px;
+}
+
+.categories{
+    display: flex;
+}
+
+.pill{
+    padding: 7px 12px;
+    background-color: brown;
+    width: fit-content;
+    border-radius: 50px;
+    color: #F1E8B8;
+    color: #fbf9eb;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.info{
+    display: flex;
+}
+
+.cast{
+    min-width: 27%;
+    height: 400px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.avatar{
+    width: 80px;
+    margin-right: 20px;
+}
+
+.member{
+    margin-bottom: 20px;
+}
+
+.fa-regular{
+    padding: 20px;
+    height: fit-content;
+    display: grid;
+    width: fit-content;
+}
+
+.calif{
+    display: flex;
+}

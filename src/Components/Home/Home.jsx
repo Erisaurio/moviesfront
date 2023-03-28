@@ -32,7 +32,9 @@ const Home = () => {
             </div>
         </header>
         <div className="box">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste aliquam a unde placeat perferendis rerum. Quibusdam mollitia, velit, corporis eligendi veniam quam, consectetur deleniti sed debitis accusantium alias adipisci.</p>
+            <div className='search'>
+                <i class="fa-solid fa-i-cursor"></i>
+            </div>
             <div className='cards'>
                 <a onClick={() => {navigate('/Peli');}}>
                     <div className='card'>

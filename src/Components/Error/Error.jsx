@@ -24,15 +24,8 @@ const Error = () => {
     }, []);
 
     return (
-
-       
-
        <div className="Error">
-
-          
-
             <div className="div" id="main" class="container" >Error
-
                 <br/>
                 <div className="row">
 
