@@ -1,26 +1,16 @@
 import '../Assets/NavYFooter.css'
 import * as React from "react";
-import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Logo from '../Assets/Logo.png';
 import LogoW from '../Assets/Logow.png';
-{/*import {Search, SearchIcon, SearchIconWrapper, StyledInputBase} from '@mui/icons-material/Search';*/}
+import Spill from '../Assets/our spill2.png';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const Errror = () => {
     const navigate = useNavigate();
-
     return<>
         <header className="Nav">
             <img src={Logo} className="logo"/>
-            {/*<Search>
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>*/}
             <div className='icons'>
                 <a onClick={() => {navigate('/Landing');}}><i class="fa-solid fa-power-off"></i></a>
                 <i className="fa-solid fa-user"></i>
@@ -28,9 +18,13 @@ const Home = () => {
                 <i className="fa-solid fa-house"></i>
             </div>
         </header>
-        <div className="box">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste aliquam a unde placeat perferendis rerum. Quibusdam mollitia, velit, corporis eligendi veniam quam, consectetur deleniti sed debitis accusantium alias adipisci.</p>
-            <a onClick={() => {navigate('/OurSpill');}}><i class="fa-solid fa-bug"></i></a>
+        <div className="box" >
+            <img src={Spill} style={{ 'width': '55%', 'float': 'left', 'max-width': '680px' }}/>
+            <div style={{ 'text-align': 'left', 'transform': 'translate(0, 90%)', 'top': '50%'}}>
+                <label style={{ 'font-size': '80px' }} >Error 404</label>
+                <div></div>
+                <label style={{ 'font-size': '30px' }} >Page not found</label>
+            </div>
         </div>
         <footer className="end">
             <img src={LogoW} className="logow"/>
@@ -42,4 +36,4 @@ const Home = () => {
     </>
 }
 
-export default Home;
+export default Errror;

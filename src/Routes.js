@@ -10,6 +10,7 @@ import Movie from './Components/Movie/Movie';
 import NewMovie from './Components/NewMovie/NewMovie';
 import Error from './Components/Error/Error';
 import Plataforma from './Components/Plataforma/plataforma'
+import Errror from './Components/ourSpill/ourSpill';
 
 /// <Route path='/ModificarPelicula' />
 
@@ -28,6 +29,7 @@ export default function Router(){
            <Route path='/Busqueda' />
            <Route path='/DetallePelicula/:Name' element={ <Movie />}/>
            <Route path='*' element={ <Error />}/>
+           <Route path='/OurSpill' element={ <Errror />}/>  
        </Routes>
     );
 }
