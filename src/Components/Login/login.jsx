@@ -3,6 +3,12 @@ import {useState, useRef, useEffect} from "react"
 
 import {ObtenerUsuarios, CrearUser} from '../../Services/user.service';
 
+
+
+import { useNavigate } from 'react-router-dom';
+import LoginBk from '../Login/BK3.png';
+
+
 const Login = () => {
     
     const [UserName, setUserName] = useState('');
@@ -30,6 +36,11 @@ const Login = () => {
     }, []);
 
     return (
+
+        <div className='background'>
+       
+        <div className='loginbox'>
+
         <div className='login container-fuid d-flex flex-column justify-content-center align-items-center p-0'>
             <div className='row w-50 d-flex justify-content-center tarjeta-login m-0'>
 
@@ -81,7 +92,7 @@ const Login = () => {
                               
                               CrearUser(UserName,UserEmail,UserPass);
                                                                                  
-                            }}>Sigin</button>
+                            }}>Ingresar</button>
 
                             {/*<Link to="/register">
                                 ¿No tienes cuenta? Registrate
@@ -119,6 +130,8 @@ const Login = () => {
                                     
 
             </div>
+        </div>
+        </div>
         </div>
     );
 }
