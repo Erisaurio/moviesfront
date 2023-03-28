@@ -2,7 +2,7 @@ import './Landing.css'
 import * as React from "react";
 import { Link } from "react-router-dom";
 import Movie from '../Assets/Movie2.png';
-
+{/*navegate("/login");*/}
 const Landing = () => {
     return<>
         <div className="hero" style={{height: "150px", overflow: "hidden"}} >
@@ -17,7 +17,7 @@ const Landing = () => {
                 <p>Todas las opiniones relevantes de la industria del cine, en un
                   solo lugar</p>
                 <div>
-                    <a href="/">LogIn</a>
+                    <button href="/">LogIn</button>
                     <a href="/">Registrarme</a>
                 </div>
                 {/*<Link to="/src/LogIn.js">rfw</Link>../../public/LogIn.html*/}

@@ -9,11 +9,12 @@ import ourSpills from './Components/ourSpill/ourSpill';
 export default function Router(){
     return(
        <Routes>
-            <Route path='/' element={ <Login />}/>
+        <Route path='/' element={ <Home />}/>
+            <Route path='/login' element={ <Login />}/>
             <Route path='/Main' element={ <Main />}/>
             <Route path='/' element={ <Pais />}/>
             <Route path='/' element={ <Landing />}/>
-            <Route path='/' element={ <Home />}/>
+            
             <Route path='/' element={ <ourSpills />}/>
        </Routes>
     );
