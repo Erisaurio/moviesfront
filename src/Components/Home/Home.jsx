@@ -22,10 +22,10 @@ const Home = () => {
                 />
             </Search>*/}
             <div className='icons'>
+                <a onClick={() => {navigate('/Landing');}}><i class="fa-solid fa-power-off"></i></a>
                 <i className="fa-solid fa-user"></i>
                 <i className="fa-solid fa-clapperboard"></i>
-                
-                <a onClick={() => {navigate('/Register');}}><i className="fa-solid fa-house"></i></a>
+                <i className="fa-solid fa-house"></i>
             </div>
         </header>
         <div className="box">
