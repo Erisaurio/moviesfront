@@ -7,3 +7,39 @@ a:hover{
   color:rgba(74, 138, 255, 0.644);
   cursor: pointer;
 }
+
+.background{
+  background-image: url(../Assets/BK3.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.loginbox{
+  display: flex;
+  margin-top: 100px;
+  justify-content: center;
+ width: 360px;
+ height: 400px;
+  padding: 13px 14px 19px 15px;
+  border-radius: 25px;
+  align-items: center;
+  background-color: white;
+ 
+}
+
+.link{
+  padding-top: 10px;
+}
+
+.text-login{
+  font-size: 30px;
+}
+.input-login{
+  text-align: center;
+}
