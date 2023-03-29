@@ -20,7 +20,7 @@ const Landing = () => {
                 <p>Todas las opiniones relevantes de la industria del cine, en un
                   solo lugar</p>
                 <div>
-                    <a onClick={() => {navigate('/Home');}}>LogIn</a>
+                    <a onClick={() => {navigate('/Login');}}>LogIn</a>
                     <a onClick={() => {navigate('/Register');}}> Registrarme </a>
                 </div>
                 {/*<Link to="/src/LogIn.js">rfw</Link>../../public/LogIn.html*/}

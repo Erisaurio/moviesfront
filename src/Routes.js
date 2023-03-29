@@ -18,7 +18,7 @@ import Errror from './Components/ourSpill/ourSpill';
 export default function Router(){
     return(
        <Routes>
-           <Route path='/' element={ <Login />}/>
+           <Route path='/Login' element={ <Login />}/>
            <Route path='/Plataforma' element={ <Plataforma />}/>
            <Route path='/Main' element={ <Main />}/>
            <Route path='/Landing' element={ <Landing />}/>

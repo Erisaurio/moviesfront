@@ -219,7 +219,7 @@ const Register = () => {
                                                       CrearUser(UserName,UserEmail,UserPass);                                            
                                                     }}>Registrarse</button></div>
                 
-                <a className="already" onClick={() => {navigate('/Home');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>
+                <a className="already" onClick={() => {navigate('/Login');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>
 
               </form>
             </div>

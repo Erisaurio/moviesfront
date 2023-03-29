@@ -155,6 +155,7 @@ const Login = () => {
                                           CrearUser(UserName,UserEmail,UserPass);
                                                                                              
                                         }}>Ingresar</button>
+                                        <a onClick={() => {navigate('/Home');}}> Ingresar </a>
                                         <a onClick={() => {navigate('/Landing');}}> Landing </a>
 
             
