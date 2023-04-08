@@ -1,0 +1,82 @@
+html {
+    height: 100%;
+}
+
+body{
+    height: 100%;
+}
+
+.App{
+    height: 100%;
+}
+
+#root{
+    height: 100%;
+}
+
+.register-photo{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bienvenidosTitle{
+    margin-bottom: 50px;
+}
+
+.image-holder-logo{
+    display: table-cell;
+  width: auto;
+  background: url(../img/meeting.jpg);
+  background-size: cover;
+}
+
+.logoNav{
+    max-width: 12.5%;
+}
+
+.nav-item {
+    background-color: #d15855;
+    transition: background-color 0.3s ease-out;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  
+  .nav-item:hover {
+    background-color: #b44e4c;
+    transition-delay: 0.1s;
+  }
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-text, .actions{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #d15855;
+    transition: background-color 0.3s ease-out;
+}
+
+    .navbar-text:hover, .actions:hover{
+        background-color: #b44e4c;
+        transition-delay: 0.1s;
+    }
+
+
+
+.login{
+    margin-right: 12px!important;
+    margin-left: 12px!important;
+}
+

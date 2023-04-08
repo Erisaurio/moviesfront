@@ -1,3 +1,11 @@
+#moviesfront
+# Edgar Eliazar Ayala Escobar
+# Eri Alejandro Avila Gonzales
+# Sagrario Monserrath Peña Ramirez
+# Talia Denisse Gutierrez Alvarez
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
