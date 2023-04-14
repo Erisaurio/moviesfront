@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 import {GetMovies} from '../../Services/movies.service';
 
+import poster from '../Assets/Poster.png';
+
 const Main = () => {
     
     const navigate = useNavigate();
@@ -115,7 +117,11 @@ const Main = () => {
                                 <li> Funcionalidad 0%, componente no creado </li>
 
                             </ul>
-                            <button >Admin</button>
+                            <button onClick={() => {
+                              
+                              navigate('/Dashboard');  
+                                                                               
+                            }}>Dashboard</button>
                             </div>
                         </div>             
                     </div>
@@ -178,7 +184,7 @@ const Main = () => {
                                 <li> Conflicto en generos </li>
                                 <li> para mostrar rn url http://localhost:3000/DetallePelicula/"Movie" </li>
                             </ul>
-                            <button >crear Pelis</button>
+                            
                             </div>
                         </div>
                     </div>
@@ -191,7 +197,11 @@ const Main = () => {
                                 <li> Funcionalidad 0%, componente no creado </li>
 
                             </ul>
-                            <button>crear Pelis</button>
+                            <button onClick={() => {
+                              
+                              navigate('/Movies');  
+                                                                               
+                            }}>Movies</button>
                             </div>
                         </div>             
                     </div>
@@ -203,9 +213,9 @@ const Main = () => {
                             <ul> 
                                 <li> falta estilo de error no found </li>
                                 <li> Para verlo usa cualquier url con /? que no exista vea rutas </li>
-                                <li> http://localhost:3000/? </li>
+                                <li> http://localhost:3000/"?"" </li>
                             </ul>
-                            <button>crear Pelis</button>
+                            
                             </div>
                         </div>             
                     </div>
@@ -241,6 +251,11 @@ const Main = () => {
                                
                                 <div class="card">
                                   <div class="card-body">
+                                    {Movie.Portada == "" ?
+                                    <img style={{height:"200px", width:"150px"}} src={poster} alt="" />
+                                    :
+                                    <img class="profileuser" src={`http://localhost:3001/${Movie.Portada}`}/>
+                                    }
                                     <h5 >Name: {Movie.Name}</h5>
                                     <h4 >email: {Movie.Fecha}</h4>
                                     <p> pass: {Movie.Portada}</p>
