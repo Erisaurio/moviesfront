@@ -112,18 +112,6 @@ const Login = () => {
                                         <label className='text-login'>Login</label>
                                     </div>
                                     <div className="col-auto text-center">
-                                        
-                                        <input
-                                            
-                                            type="text"
-                                            className="input-login"
-                                            id="username"
-                                            placeholder="Username"
-                                            onChange={e => setUserName(e.target.value)} value={UserName}
-                                             />
-            
-                                    </div>
-                                    <div className="col-auto text-center">
             
                                         <input
                                             
@@ -152,10 +140,10 @@ const Login = () => {
             
                                         <button  type="button" class="btn btn-primary" onClick={() => {
                                           
-                                          CrearUser(UserName,UserEmail,UserPass);
+                                          IniciarSesion(UserEmail,UserPass);
                                                                                              
                                         }}>Ingresar</button>
-                                        <a onClick={() => {navigate('/Home');}}> Ingresar </a>
+                                        
                                         <a onClick={() => {navigate('/Landing');}}> Landing </a>
 
             
