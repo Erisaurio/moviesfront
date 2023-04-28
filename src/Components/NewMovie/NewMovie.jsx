@@ -204,9 +204,9 @@ const NewMovie = () => {
                             <div className='portada-peli'>
                                 <div className='imagen-portada'>
                                     <img id='imagenPortada' src={pelis}/>
-                                    {<div className='blank'> {/*no-visible*/}
+                                    <div className='blank'> {/*no-visible*/}
                                         <i class="fa-solid fa-plus cruz"></i>
-                                    </div>}
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -215,7 +215,7 @@ const NewMovie = () => {
                                 type="file"
                                 className="input-image"
                                 id="btn-portada"
-
+                                accept="image/*"
                                 onChange={e => setSProtada(e.target.value)} value={Portada}
                             />
 

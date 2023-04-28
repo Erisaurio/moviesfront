@@ -164,4 +164,10 @@ input[type=number]{
     padding: 5px 20px;
     border-radius: 10px;
     border: none;
+    border: 1px solid #191919;
+    transition: all ease .3s;
+}
+#addMovie:hover {
+    color: #191919;
+    background-color: whitesmoke;
 }
