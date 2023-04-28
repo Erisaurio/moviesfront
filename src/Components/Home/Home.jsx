@@ -19,37 +19,37 @@ const Home = () => {
             </div>*/}
             <div className='cards'>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>
                 </a>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>
                 </a>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>
                 </a>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>
                 </a>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>
                 </a>
                 <a onClick={() => {navigate('/Peli');}}>
-                    <div className='card'>
+                    <div className='card hover'>
                         <img src={pelis}/>
                         <label>Nombre de película</label>
                     </div>

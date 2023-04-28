@@ -205,7 +205,7 @@ const NewMovie = () => {
                                 <div className='imagen-portada'>
                                     <img id='imagenPortada' src={pelis}/>
                                     {<div className='blank'> {/*no-visible*/}
-                                        <i class="fa-solid fa-plus"></i>
+                                        <i class="fa-solid fa-plus cruz"></i>
                                     </div>}
                                 </div>
                                 

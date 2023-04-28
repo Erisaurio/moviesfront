@@ -9,12 +9,27 @@ const Errror = () => {
     const navigate = useNavigate();
     return<>
         <Header/>
-        <div className="box" >
-            <img src={Spill} style={{ 'width': '55%', 'float': 'left', 'max-width': '680px' }}/>
-            <div style={{ 'text-align': 'left', 'transform': 'translate(0, 30%)', 'top': '50%', 'color': '#191919', 'display': 'block', 'align-items': 'center'}}>
-                <label style={{ 'font-size': '80px' }} >Error 404</label>
-                <div></div>
-                <label style={{ 'font-size': '30px' }} >Page not found</label>
+        <div className="box" style={{'display': 'flex', 'align-items': 'center', 'justify-content': 'center'}}>
+            <img src={Spill} 
+                style={{ 
+                    'width': '55%', 
+                    'max-width': '680px' 
+                }}
+            />
+            <div 
+                style={{ 
+                    'text-align': 'left', 
+                    'color': '#191919', 
+                    'display': 'flex',
+                    'height':'100%', 
+                    'align-items': 'center',
+                    'margin-bottom':'100px'
+                }}>
+                <div>
+                    <label style={{ 'font-size': '80px' }} >Error 404</label>
+                    <div></div>
+                    <label style={{ 'font-size': '30px' }} >Page not found</label>
+                </div>
             </div>
         </div>
         <Footer/>
