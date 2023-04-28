@@ -53,11 +53,10 @@ const Dashboard = () => {
                         <div class="position-sticky">
                             <div className="h3">Dashboard</div>
                             <div class="list-group list-group-flush mx-3 mt-4">
-                            
                                 <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                                     Informes</a>
                                 <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                    Admin usuarios Admins</a>
+                                    Admin usuarios</a>
                                 <a class="nav-link" id="nav-Cusro-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="nav-Cusro" aria-selected="false">
                                     Admin categorias</a>
                                 <a class="nav-link" id="nav-Historial-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="nav-Historial" aria-selected="false">
@@ -74,72 +73,65 @@ const Dashboard = () => {
                     <div className="col-8">
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
-                                <p>1</p>
-                                <p>info de las tablas</p>
+                                <h3>Info de las tablas</h3>
                                 <a class="btn btn-primary btnNext" >Next</a>
                             </div>
                             <div class="tab-pane" id="tab2">
                                 <h3>Admin Usuarios</h3>
                                 <br />
-                                <p>crear usuari:Admin</p>
-                                <br />
-                                <p>Usuarios</p>
-                                <table class="table table-hover mt-1">
-                                    <thead>
-                                    <tr>
-                                        <th class="table-secondary" scope="col">img</th>
-                                        <th class="table-secondary" scope="col">Usuario</th>
-                                        <th class="table-secondary" scope="col">Rol</th>
-                                        <th class="table-secondary" scope="col">Fecha</th>     
-                                        <th class="table-secondary" scope="col">Eliminar</th>
+                                <p>crear usuario: Admin</p>
+                                <div class="title">
+                                    <h4>Usuarios</h4>
+                                </div>
+                                <div className='tabla'>
+                                <table class="table table-hover mt-1 content-table">
+                                    <thead className='thead'>
+                                    <tr className='columna'>
+                                        <th class="table-secondary one" scope="col">Icono</th>
+                                        <th class="table-secondary one" scope="col">Usuario</th>
+                                        <th class="table-secondary one" scope="col">Rol</th>
+                                        <th class="table-secondary one" scope="col">Fecha</th>     
+                                        <th class="table-secondary one" scope="col">Eliminar</th>
                                     </tr>
                                     </thead>
-                                        <tbody class="overflow-auto table-light" >
-
+                                    <tbody class="overflow-auto table-light">
+                                    {
+                                        dataUsers.map((Users, index) =>
+                                            <tr className='columna' key={index}
+                                                onClick={() => {   
+                                            }}>
+                                                {Users.filename == "" ?
+                                                <th className='one' scope="col"><img style={{height:"62px", width:"62px"}} src={avatar} alt="" /></th>
+                                                : 
+                                                <th className='one' scope="col"><img class="profileuser" src={`http://localhost:3001/${Users.filename}`}/></th>
+                                                }
+                                                
+                                                <th className='one' scope="col">{Users.name}</th>
+                                                <td className='one' scope="col">{Users.role}</td>
+                                                <td className='one' scope="col">{Users.createdAt}</td>
+                                                 
+                                                <td className='one' scope="col"> <button className='btn-eliminar' onClick={() => {
+                                                alert(Users.name);     
+                                                //EliminarTareas();
+                                                //setMessage('');                                                    
+                                                }} >Eliminar</button></td>
+                                                
+                                            </tr>
                                             
-                                        {
-                                                dataUsers.map((Users, index) =>
-                                                    <tr key={index}
-                                                        onClick={() => {
-                                                            
-                                                        }}
-                                                        >   {Users.filename == "" ?
-                                                            <th scope="col"><img style={{height:"62px", width:"62px"}} src={avatar} alt="" /></th>
-                                                            : 
-                                                            <th scope="col"><img class="profileuser" src={`http://localhost:3001/${Users.filename}`}/></th>
-                                                            }
-                                                            
-                                                            <th scope="col">{Users.name}</th>
-                                                            <td scope="col">{Users.role}</td>
-                                                            <td scope="col">{Users.createdAt}</td>
-                                                             
-                                                            <td scope="col"> <button onClick={() => {
-                                                    
-                                                            alert(Users.name);     
-                                                            //EliminarTareas();
-                                                            //setMessage('');                                                    
-                                                            }} >Eliminar</button></td>
-                                                        
-                                                    </tr>
-                                                    
-                                                ) 
-                                                    
-                                            }
-
+                                        ) 
                                             
-
-                                        </tbody>
-                                    </table>
+                                    }
+                                    </tbody>
+                                </table>
+                                </div>
 
                             </div>
                             <div class="tab-pane" id="tab3">
-                                <p>3</p>
-                                <p>Agregar, Editar y eliminar Categorias</p>
+                                <h3>Agregar, Editar y eliminar Categorias</h3>
                                 <a class="btn btn-primary btnPrevious" >Previous</a>
                             </div>
                             <div class="tab-pane" id="tab4">
-                                <p>4</p>
-                                <p>Agregar, Editar y eliminar Pelis</p>
+                                <h3>Agregar, Editar y eliminar Pelis</h3>
                                 <a class="btn btn-primary btnPrevious" >Previous</a>
                                 {/* <a class="btn btn-primary btnPrevious" onClick={() => {
                                         
@@ -148,13 +140,11 @@ const Dashboard = () => {
                                 }} >Previous</a> */}
                             </div>
                             <div class="tab-pane" id="tab5">
-                                <p>5</p>
-                                <p>Agregar, Editar y eliminar Cast</p>
+                                <h3>Agregar, Editar y eliminar Cast</h3>
                                 <a class="btn btn-primary btnNext" >Next</a>
                             </div>
                             <div class="tab-pane" id="tab6">
-                                <p>6</p>
-                                <p>Agregar, Editar y eliminar plataforma</p>
+                                <h3>Agregar, Editar y eliminar plataforma</h3>
                                 <a class="btn btn-primary btnNext" >Next</a>
                                 <a class="btn btn-primary btnPrevious" >Previous</a>
                             </div>
