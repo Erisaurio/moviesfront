@@ -1,6 +1,6 @@
 import './EditMovie.css'
-import Header from "../Header/Header";
-import Footer from '../Footer/Footer';
+import Header from "../HeaderYFooter/Header";
+import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 import { useNavigate, useParams } from 'react-router-dom';
 

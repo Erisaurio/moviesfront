@@ -1,16 +1,13 @@
 import './Register.css'
-import '../Assets/NavYFooter.css'
-import Header from "../Header/Header";
-import Footer from '../Footer/Footer';
+import '../HeaderYFooter/NavYFooter.css'
+import Logo from '../Assets/Logo.png';
+import Footer from '../HeaderYFooter/Footer';
 import { useNavigate } from 'react-router-dom';
 import {useState, useRef, useEffect} from "react"
 import '../../css/Login-Form-Clean.css'; 
 import '../../css/Navigation-with-Button.css'; 
 import '../../css/Registration-Form-with-Photo.css'; 
 import '../../css/styles.css'; 
-import logo from '../../img/logo.png';
-import Logo from '../Assets/Logo.png';
-import LogoW from '../Assets/Logow.png';
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
 
@@ -188,20 +185,6 @@ const Register = () => {
         <>
         <header className="Nav">
             <img src={Logo} className="logo"/>
-            {/*<Search>
-                <SearchIconWrapper>
-                    <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-                />
-            </Search>
-            <div className='icons'>
-                <i className="fa-solid fa-user"></i>
-                <i className="fa-solid fa-clapperboard"></i>
-                <i className="fa-solid fa-house"></i>
-            </div>*/}
         </header>
         <div className="box">
           <section className="register-photo">
@@ -225,13 +208,8 @@ const Register = () => {
             </div>
           </section>
         </div>
-        <footer className="end">
-            <img src={LogoW} className="logow"/>
-            <label>Copyright</label>
-            <i className="fa-regular fa-copyright" style={{marginLeft: "7px", marginRight: "7px"}}></i>
-            <label>2023 Todos los derechos reservados.</label>
-            
-        </footer>
+
+        <Footer/>
   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         </>

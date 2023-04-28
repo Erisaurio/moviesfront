@@ -24,6 +24,7 @@ export default function Router(){
            <Route path='/Login' element={ <Login />}/>
            <Route path='/Plataforma' element={ <Plataforma />}/>
            <Route path='/Main' element={ <Main />}/>
+           <Route path='/Landing' element={ <Landing />}/>
            <Route path='/' element={ <Landing />}/>
            <Route path='/Register' element={ <Register  />}/>
            <Route path='/Home' element={<Home/>}/>
