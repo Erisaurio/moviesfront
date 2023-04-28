@@ -14,9 +14,9 @@ const Home = () => {
         <Header/>
 
         <div className="box">
-            <div className='search'>
+            {/*<div className='search'>
                 <i class="fa-solid fa-i-cursor"></i>
-            </div>
+            </div>*/}
             <div className='cards'>
                 <a onClick={() => {navigate('/Peli');}}>
                     <div className='card'>
@@ -56,6 +56,12 @@ const Home = () => {
                 </a>
             </div>
         </div>
+
+        <a onClick={() => {navigate('/NewMovie');}}>
+            <div className='newMovie'>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+        </a>
 
         <Footer/>
     </>

@@ -1,0 +1,123 @@
+h1{
+    margin-top: 40px;
+}
+
+.container {
+    min-height: 74vh;
+}
+
+.formulario {
+    background-color: aliceblue;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.detail{
+    margin: 15px;
+}
+.detail input, .detail button{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    color: gray;
+}
+.detail button{
+    padding: 5px 10px;
+    color: black;
+}
+.detail select{
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+#publicacion{
+    width: 50%;
+    min-height: 50px;
+    background: rgb(233, 233, 233);;
+    padding: 20px;
+    border-radius: 7px;
+    margin: auto;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(placeholder)
+}
+.commentBoxP{ 
+    color: gray;
+    line-height: 1.5em;
+    text-align: left;
+}
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+.tiempo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#Horas{
+    width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#Minutos{
+    width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#Segundos{
+    width: 80px;
+    margin-left: 5px;
+}
+
+.portada-peli{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    width: 300px;
+    height: 444px;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+.portada-peli img{
+    width: 300px;
+    height: 444px;
+    z-index: 0;
+}
+.imagen-portada{
+    width: 300px;
+    height: 444px;
+    z-index: 0;
+    overflow: hidden;
+}
+.blank{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(233, 233, 233);
+    transform: translateY(-444px);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.fa-plus{
+    font-size: 100px;
+    color: gray;
+}
+.no-visible{
+    display: none;
+}

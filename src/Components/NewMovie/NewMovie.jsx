@@ -1,6 +1,7 @@
 import './NewMovie.css'
 import Header from "../HeaderYFooter/Header";
 import Footer from '../HeaderYFooter/Footer';
+import pelis from '../Assets/pinocho.jpeg';
 
 import {useState, useRef, useEffect} from "react"
 import { useNavigate } from 'react-router-dom';
@@ -96,14 +97,13 @@ const NewMovie = () => {
 
        
 
-       <div className="Main">
-
+        <div className="Main">
             <Header/>
-
-            <div className="div" id="main" class="container" >New Movie
-
+            
+            <div className="contenido" id="main" class="container" >
+                <h1>Agregar Película</h1>
                 <br/>
-                <div className="row">
+                {/*<div className="row">
 
                     <div className="col-3" style={{backgroundColor: "lightblue"}}>col-4
                     </div>
@@ -114,146 +114,157 @@ const NewMovie = () => {
                     </div>
                     <div className="col-3" style={{backgroundColor: "Green"}}>col-4
                     </div>
-                </div>
+                </div>*/}
                 
-                
-                {/* ds */}
-                {
+                <div className='formulario'>
+                    {/* ds */}
                     
-                    <select placeholder='Generos' name="Generos" onChange={e => setName(e.target.value)}>
-                       <option value="">Elige una opción</option>
-                        {   
-                        ///navigate(`/topic/${props.id}`)
-                            generos.map((Generos, index) =>
-                                                                
-                        <option value={Generos.Genero}>{Generos.Genero}</option>
-                           
-                        ) 
-                        }
-                    </select>
-                }
-                    <button onClick={() => {
-                              
-                              AddGenero(selectedG);
-                              setshowG(GenerosAr);
-                             
-                    }}>Agregar Genero</button>
-                
-                <div className="col-auto text-center">
-                    
-                    <input
+                    <div className="col-auto text-center detail">
                         
-                        type="text"
-                        className="input-login"
-                        id="Moviename"
-                        placeholder="Movie name"
-                        onChange={e => setNMovie(e.target.value)} value={NameMovie}
-                            />
-
-                </div>
-                <div className="col-auto text-center">
-
-                    <input
-                        
-                        type="date"
-                        className="input-login"
-                        id="Date"
-                        placeholder="Fecha de pelicula"
-                        onChange={e => setFMovie(e.target.value)} value={FechaMovie}
+                        <input
+                            type="text"
+                            className="input-login"
+                            id="Moviename"
+                            placeholder="Nombre de la película"
+                            onChange={e => setNMovie(e.target.value)} value={NameMovie}
                         />
 
-                </div>
-                <div className="col-auto text-center">
-
-                    <input
-                        
-                        type="text"
-                        className="input-login"
-                        id="sinopsis"
-                        placeholder="sinopsis"
-                        onChange={e => setSMovie(e.target.value)} value={Sinopsis}
-                            />
-
-                </div>
-                <div className="col-auto text-center">
+                    </div>
+                    <div className="col-auto text-center detail">
+                        <select placeholder='Generos' name="Generos" onChange={e => setName(e.target.value)}>
+                            <option value="">Género</option>
+                            {   
+                                ///navigate(`/topic/${props.id}`)
+                                generos.map((Generos, index) =>
+                                                                    
+                                <option value={Generos.Genero}>{Generos.Genero}</option>
+                            ) 
+                            }
+                        </select>
                     
-                    <input
-                        
-                        type="number"
-                        className="input-login"
-                        id="Horas"
-                        placeholder="Horas"
-                        onChange={e => setHour(e.target.value)} value={Horas}
-                            />
+                        <button onClick={() => {
+                                
+                                AddGenero(selectedG);
+                                setshowG(GenerosAr);
+                                
+                        }}>Agregar</button>
+                    </div>
+                    <div className="col-auto text-center detail">
 
-                </div>
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="number"
-                        className="input-login"
-                        id="Minutos"
-                        placeholder="Minutos"
-                        onChange={e => setMin(e.target.value)} value={Minutos}
-                            />
+                        <input
+                            
+                            type="date"
+                            className="input-login"
+                            id="Date"
+                            placeholder="Fecha de pelicula"
+                            onChange={e => setFMovie(e.target.value)} value={FechaMovie}
+                        />
 
-                </div>
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="text"
-                        className="input-login"
-                        id="Portada"
-                        placeholder="Portada"
-                        onChange={e => setSProtada(e.target.value)} value={Portada}
-                            />
+                    </div>
+                    {/*<div className="col-auto text-center detail">
 
-                </div>
-                
-                <label htmlFor="">generos:</label>
-                <label htmlFor="">* despues de agregar genero seleciona y elige ortra opcion el combo y se muestran</label>
-                <label htmlFor="">* No se la razon</label>
-                {   
-                  ///mostrar los generos agregados
+                        <input
+                            
+                            type="text"
+                            className="input-login"
+                            id="sinopsis"
+                            placeholder="sinopsis"
+                            onChange={e => setSMovie(e.target.value)} value={Sinopsis}
+                        />
+
+                    </div>*/}
+                    <div id="publicacion" className='col-auto text-center detail'>
+                        <div id="commentBoxP" contenteditable="true" dir="auto" class="commentBoxP" placeholder="Sinopsis"></div>
+                    </div>
+                    <div className="col-auto text-center detail tiempo">
+                        <label>Duración: </label>
+                        <input
+                            
+                            type="number"
+                            className="input-login"
+                            id="Horas"
+                            placeholder="00"
+                            onChange={e => setHour(e.target.value)} value={Horas}
+                        />
+                        <label> : </label>
+                        <input
+                            
+                            type="number"
+                            className="input-login"
+                            id="Minutos"
+                            placeholder="00"
+                            onChange={e => setMin(e.target.value)} value={Minutos}
+                        />
+                        <label> : </label>
+                        <input
+                            
+                            type="number"
+                            className="input-login"
+                            id="Segundos"
+                            placeholder="00"
+                            onChange={e => setMin(e.target.value)} value={Minutos}
+                        />
+                        
+                    </div>
+                    <div className="col-auto text-center detail">
+                        <div className='portada-peli'>
+                            <div className='imagen-portada'>
+                                <img id='imagenPortada' src={pelis}/>
+                                {<div className='blank'> {/*no-visible*/}
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>}
+                            </div>
+                            
+                        </div>
+                        {/*<input
+                            
+                            type="file"
+                            className="input-image"
+                            id="Portada"
+
+                            onChange={e => setSProtada(e.target.value)} value={Portada}
+                        />
+                        <input type='image'/>*/}
+
+                    </div>
                     
-                        
-                        
+                    <label htmlFor="">generos:</label>
+                    <label htmlFor="">* despues de agregar genero seleciona y elige ortra opcion el combo y se muestran</label>
+                    <label htmlFor="">* No se la razon</label>
+                    {   
+                        ///mostrar los generos agregados
                         Generoshow.map((Genero, index) =>
                             <div className="col-4 ">
-                                
                                 <ul>
                                     <li>{Genero} 
                                         <a onClick={() => {
-                              
+                            
                                         removeGenero(index)
                                                     
                                         }} href="" > x</a> 
                                     </li>
                                 </ul>
-                                
                             </div>
-                        
                         ) 
-                   
+                
                         ///mostrar los generos agregados
-                }
-
+                    }
+                </div>
                 {/*boton add Movie*/}
                 <br />
                 <button onClick={() => {
-                              
+                            
                     CrearMovie(NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr).then((response) => {
                         navigate(`/EditPelicula/${NameMovie}`);              
                     })
                     .catch((error) => {
                         console.log(error);
                     }); 
-                             
+                            
                 }}>Agregar Pelicula</button>
-
+                
             </div>
+
           {/* ds */}
           
           {/* 
