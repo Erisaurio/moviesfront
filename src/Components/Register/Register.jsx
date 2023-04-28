@@ -199,8 +199,8 @@ const Register = () => {
                 <div className="mb-3"><input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" /></div>
                 <div className="mb-3"></div>
                 <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
-                                                      CrearUser(UserName,UserEmail,UserPass);                                            
-                                                    }}>Registrarse</button></div>
+                    CrearUser(UserName,UserEmail,UserPass);                                            
+                }}>Registrarse</button></div>
                 
                 <a className="already" onClick={() => {navigate('/Login');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>
 

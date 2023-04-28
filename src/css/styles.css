@@ -23,13 +23,30 @@ body{
 
 .bienvenidosTitle{
     margin-bottom: 50px;
+    margin-left: 40px;
+}
+
+@media (min-width: 1230px) {
+    .bienvenidosTitle {
+        margin-left: 13%;
+    }
+}
+@media (min-width: 1500px) {
+    .bienvenidosTitle {
+        margin-left: 15%;
+    }
+}
+@media (min-width: 1700px) {
+    .bienvenidosTitle {
+        margin-left: 20%;
+    }
 }
 
 .image-holder-logo{
     display: table-cell;
-  width: auto;
-  background: url(../img/meeting.jpg);
-  background-size: cover;
+    width: auto;
+    background: url(../img/meeting.jpg);
+    background-size: cover;
 }
 
 .logoNav{
