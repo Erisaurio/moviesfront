@@ -1,6 +1,7 @@
 import './NewMovie.css'
-import Header from "../Header/Header";
-import Footer from '../Footer/Footer';
+import Header from "../HeaderYFooter/Header";
+import Footer from '../HeaderYFooter/Footer';
+import pelis from '../Assets/pinocho.jpeg';
 
 import {useState, useRef, useEffect} from "react"
 import { useNavigate } from 'react-router-dom';
@@ -96,14 +97,13 @@ const NewMovie = () => {
 
        
 
-       <div className="Main">
-
+        <div className="Main">
             <Header/>
-
-            <div className="div" id="main" class="container" >New Movie
-
+            
+            <div className="contenido" id="main">
+                
                 <br/>
-                <div className="row">
+                {/*<div className="row">
 
                     <div className="col-3" style={{backgroundColor: "lightblue"}}>col-4
                     </div>
@@ -114,146 +114,152 @@ const NewMovie = () => {
                     </div>
                     <div className="col-3" style={{backgroundColor: "Green"}}>col-4
                     </div>
-                </div>
+                </div>*/}
                 
-                
-                {/* ds */}
-                {
-                    
-                    <select placeholder='Generos' name="Generos" onChange={e => setName(e.target.value)}>
-                       <option value="">Elige una opción</option>
-                        {   
-                        ///navigate(`/topic/${props.id}`)
-                            generos.map((Generos, index) =>
-                                                                
-                        <option value={Generos.Genero}>{Generos.Genero}</option>
-                           
-                        ) 
-                        }
-                    </select>
-                }
-                    <button onClick={() => {
-                              
-                              AddGenero(selectedG);
-                              setshowG(GenerosAr);
-                             
-                    }}>Agregar Genero</button>
-                
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="text"
-                        className="input-login"
-                        id="Moviename"
-                        placeholder="Movie name"
-                        onChange={e => setNMovie(e.target.value)} value={NameMovie}
+                <div className='formulario'>
+                    <div className='bloque-datos'>
+                        <h1>Agrega una Película</h1>
+                        <div className="col-auto text-center detail">
+                            
+                            <input style={{'width':'100%'}}
+                                type="text"
+                                className="input-login"
+                                id="Moviename"
+                                placeholder="Nombre de la película"
+                                onChange={e => setNMovie(e.target.value)} value={NameMovie}
                             />
 
-                </div>
-                <div className="col-auto text-center">
-
-                    <input
+                        </div>
+                        <div className="col-auto text-center detail genero">
+                            <select placeholder='Generos' name="Generos" onChange={e => setName(e.target.value)}>
+                                <option value="">Género</option>
+                                {   
+                                    ///navigate(`/topic/${props.id}`)
+                                    generos.map((Generos, index) =>
+                                                                        
+                                    <option value={Generos.Genero}>{Generos.Genero}</option>
+                                ) 
+                                }
+                            </select>
                         
-                        type="date"
-                        className="input-login"
-                        id="Date"
-                        placeholder="Fecha de pelicula"
-                        onChange={e => setFMovie(e.target.value)} value={FechaMovie}
-                        />
+                            <button onClick={() => {
+                                    
+                                    AddGenero(selectedG);
+                                    setshowG(GenerosAr);
+                                    
+                            }}>Agregar</button>
+                        </div>
+                        {/*<div className="col-auto text-center detail">
 
-                </div>
-                <div className="col-auto text-center">
-
-                    <input
-                        
-                        type="text"
-                        className="input-login"
-                        id="sinopsis"
-                        placeholder="sinopsis"
-                        onChange={e => setSMovie(e.target.value)} value={Sinopsis}
+                            <input
+                                
+                                type="text"
+                                className="input-login"
+                                id="sinopsis"
+                                placeholder="sinopsis"
+                                onChange={e => setSMovie(e.target.value)} value={Sinopsis}
                             />
 
-                </div>
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="number"
-                        className="input-login"
-                        id="Horas"
-                        placeholder="Horas"
-                        onChange={e => setHour(e.target.value)} value={Horas}
+                        </div>*/}
+                        <div id="publicacion" className='col-auto text-center detail'>
+                            <div id="commentBoxP" contenteditable="true" dir="auto" class="commentBoxP" placeholder="Sinopsis"></div>
+                        </div>
+                        <div className="col-auto text-center detail tiempo">
+                            <label>Duración: </label>
+                            <input
+                                
+                                type="number"
+                                className="input-login"
+                                id="Horas"
+                                placeholder="00"
+                                onChange={e => setHour(e.target.value)} value={Horas}
+                            />
+                            <label> : </label>
+                            <input
+                                
+                                type="number"
+                                className="input-login"
+                                id="Minutos"
+                                placeholder="00"
+                                onChange={e => setMin(e.target.value)} value={Minutos}
+                            />
+                            
+                        </div>
+                        <div className="col-auto text-center detail">
+                            <label>Fecha de estreno:</label>
+                            <input style={{'margin-left':'5px', 'width':'calc(100% - 153px)'}}
+                                
+                                type="date"
+                                className="input-login"
+                                id="Date"
+                                placeholder="Fecha de pelicula"
+                                onChange={e => setFMovie(e.target.value)} value={FechaMovie}
                             />
 
-                </div>
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="number"
-                        className="input-login"
-                        id="Minutos"
-                        placeholder="Minutos"
-                        onChange={e => setMin(e.target.value)} value={Minutos}
+                        </div>
+                    </div>
+                    <div className='bloque-foto'>
+
+                        <div className="col-auto text-center detail">
+                            <div className='portada-peli'>
+                                <div className='imagen-portada'>
+                                    <img id='imagenPortada' src={pelis}/>
+                                    <div className='blank'> {/*no-visible*/}
+                                        <i class="fa-solid fa-plus cruz"></i>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <input
+                                
+                                type="file"
+                                className="input-image"
+                                id="btn-portada"
+                                accept="image/*"
+                                onChange={e => setSProtada(e.target.value)} value={Portada}
                             />
 
-                </div>
-                <div className="col-auto text-center">
-                    
-                    <input
-                        
-                        type="text"
-                        className="input-login"
-                        id="Portada"
-                        placeholder="Portada"
-                        onChange={e => setSProtada(e.target.value)} value={Portada}
-                            />
+                        </div>
+                    </div>
+                </div>    
 
-                </div>
-                
                 <label htmlFor="">generos:</label>
                 <label htmlFor="">* despues de agregar genero seleciona y elige ortra opcion el combo y se muestran</label>
                 <label htmlFor="">* No se la razon</label>
                 {   
-                  ///mostrar los generos agregados
-                    
+                    ///mostrar los generos agregados
+                    Generoshow.map((Genero, index) =>
+                        <div className="col-4 ">
+                            <ul>
+                                <li>{Genero} 
+                                    <a onClick={() => {
                         
-                        
-                        Generoshow.map((Genero, index) =>
-                            <div className="col-4 ">
-                                
-                                <ul>
-                                    <li>{Genero} 
-                                        <a onClick={() => {
-                              
-                                        removeGenero(index)
-                                                    
-                                        }} href="" > x</a> 
-                                    </li>
-                                </ul>
-                                
-                            </div>
-                        
-                        ) 
-                   
-                        ///mostrar los generos agregados
+                                    removeGenero(index)
+                                                
+                                    }} href="" > x</a> 
+                                </li>
+                            </ul>
+                        </div>
+                    ) 
+            
+                    ///mostrar los generos agregados
                 }
-
+                
                 {/*boton add Movie*/}
                 <br />
-                <button onClick={() => {
-                              
+                <button id='addMovie'
+                onClick={() => {        
                     CrearMovie(NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr).then((response) => {
                         navigate(`/EditPelicula/${NameMovie}`);              
                     })
                     .catch((error) => {
                         console.log(error);
                     }); 
-                             
-                }}>Agregar Pelicula</button>
-
+                            
+                }}>Añadir</button>
+                
             </div>
+
           {/* ds */}
           
           {/* 
