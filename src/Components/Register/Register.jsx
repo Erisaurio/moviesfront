@@ -184,7 +184,7 @@ const Register = () => {
 
         <>
         <header className="Nav">
-            <img src={Logo} className="logo"/>
+        <a onClick={() => {navigate('/Landing');}}><img src={Logo} className="logo"/></a>
         </header>
         <div className="box">
           <section className="register-photo">

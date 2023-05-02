@@ -133,7 +133,7 @@ const Login = () => {
                                     <button  type="button" class="btn btn-primary" onClick={() => {
                                           IniciarSesion(UserEmail,UserPass);                                                   
                                     }}>Ingresar</button>
-                                    <a onClick={() => {navigate('/Landing');}}> Landing </a>
+                                    {/* <a onClick={() => {navigate('/Landing');}}> Landing </a> */}
                                 </div>
                             </form>
                         </div>

@@ -27,6 +27,7 @@ const GetMovie = async (Name) => {
 
 const CrearMovie = async (NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr) => {
     let response;
+    debugger;
     console.log(typeof(FechaMovie));
     console.log(typeof(Horas));
     console.log(typeof(GenerosAr));
@@ -51,6 +52,16 @@ const UpdateMovie = async (id_movie,NameMovie,FechaMovie,Sinopsis,Horas,Minutos,
     return response?.data ? response?.data : null
 }
 
+const DeleteMovie = async (id_movie) => {
+    let response;
 
+    try {
+        response = await axios.delete(BaseUrlPeliculas + '/' + id_movie);
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
 
-export { GetMovies, GetMovie, CrearMovie ,UpdateMovie};
+export { GetMovies, GetMovie, CrearMovie ,UpdateMovie, DeleteMovie};

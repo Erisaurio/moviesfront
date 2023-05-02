@@ -13,7 +13,7 @@ const ObtenerGeneros = async () => {
     return response?.data ? response?.data : null;
 }
 
-const ObtenerUsuario = async (id_user) => {
+const ObtenerGenero = async (id_user) => {
     let response;
 
     try {
@@ -25,13 +25,11 @@ const ObtenerUsuario = async (id_user) => {
     return response?.data ? response?.data : null;
 }
 
-const CrearUser = async (nombre, email, pass) => {
+const CrearGenero = async (Genero) => {
     let response;
-    console.log(nombre);
-    console.log(email);
-    console.log(pass);
+
     try {
-        response = await axios.post(BaseUrlGenero, {  name: nombre, email: email, password: pass  });
+        response = await axios.post(BaseUrlGenero, {  Genero: Genero  });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -39,13 +37,11 @@ const CrearUser = async (nombre, email, pass) => {
     return response?.data ? response?.data : null
 }
 
-const EditUser = async (id_user,nombre, email, pass) => {
+const EditGenero = async (id_genero,Genero) => {
     let response;
-    console.log(nombre);
-    console.log(email);
-    console.log(pass);
+
     try {
-        response = await axios.put(BaseUrlGenero + '/' + id_user, {  name: nombre, email: email, password: pass  });
+        response = await axios.put(BaseUrlGenero + '/' + id_genero, {  Genero: Genero });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -53,6 +49,16 @@ const EditUser = async (id_user,nombre, email, pass) => {
     return response?.data ? response?.data : null
 }
 
+const DeleteGenero = async (id_Genero) => {
+    let response;
 
+    try {
+        response = await axios.delete(BaseUrlGenero + '/' + id_Genero);
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
 
-export { ObtenerGeneros };
+export { ObtenerGeneros, CrearGenero, DeleteGenero, EditGenero};

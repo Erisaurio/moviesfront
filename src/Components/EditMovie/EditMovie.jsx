@@ -41,8 +41,8 @@ const EditMovie = () => {
         const myfile = ev.target.files[0]
         formData.append("myfile", myfile)
         debugger
-        console.log(`myfyle = ${myfile}`);
-        console.log(`formData = ${formData.get("myfile")}`);
+        //console.log(`myfyle = ${myfile}`);
+        //console.log(`formData = ${formData.get("myfile")}`);
         //setImage(URL.createObjectURL(ev.target.files[0]));
         //formData.append("id", id);
         EditMovieImg(dataMovie._id,formData);
@@ -116,7 +116,7 @@ const EditMovie = () => {
 
                                             <br />
                                             <p> imagen</p>
-                                            <button onClick={InputClick}>cambiar imagen</button>
+                                            <button onClick={InputClick}>Editar imagen</button>
                                             <input
                                         
                                                 type="file"

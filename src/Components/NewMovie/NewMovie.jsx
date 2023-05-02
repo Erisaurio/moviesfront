@@ -248,15 +248,16 @@ const NewMovie = () => {
                 {/*boton add Movie*/}
                 <br />
                 <button id='addMovie'
-                onClick={() => {        
-                    CrearMovie(NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr).then((response) => {
+                onClick={() => {      
+                    debugger  
+                    CrearMovie(NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr).then(() => {
                         navigate(`/EditPelicula/${NameMovie}`);              
                     })
                     .catch((error) => {
                         console.log(error);
                     }); 
                             
-                }}>Añadir</button>
+                }}>Añadir Pelicual</button>
                 
             </div>
 
