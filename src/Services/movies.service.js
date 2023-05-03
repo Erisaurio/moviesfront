@@ -39,13 +39,11 @@ const CrearMovie = async (NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,Ge
     return response?.data ? response?.data : null
 }
 
-const EditUser = async (id_user,nombre, email, pass) => {
+const UpdateMovie = async (id_movie,NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr) => {
     let response;
-    console.log(nombre);
-    console.log(email);
-    console.log(pass);
-    try {
-        response = await axios.put(BaseUrlPeliculas + '/' + id_user, {  name: nombre, email: email, password: pass  });
+    
+    try {                                                                                                                                                         //, Generos: GenerosAr                               
+        response = await axios.put(BaseUrlPeliculas + '/' + id_movie , {  Name: NameMovie, Fecha: FechaMovie, Sinopsis: Sinopsis, Portada: Portada, Horas: Horas, Minutos: Minutos, Generos: GenerosAr});
     } catch (e) {
         throw new Error(e.message)
     }
@@ -55,4 +53,4 @@ const EditUser = async (id_user,nombre, email, pass) => {
 
 
 
-export { GetMovies, GetMovie, CrearMovie };
+export { GetMovies, GetMovie, CrearMovie ,UpdateMovie};

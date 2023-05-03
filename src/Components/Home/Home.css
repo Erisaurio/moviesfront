@@ -2,7 +2,7 @@
     text-align: left;
 }
 
-.search{
+/*.search{
     background-color: gainsboro;
     width: 50%;
     margin: auto;
@@ -10,12 +10,19 @@
     border-radius: 5px;  
     cursor: text; 
 }
-
 .search i{
     color: rgb(18, 13, 9);
     transform: translate(0, -25px);
     font-size: 30px;
     float: left; 
+}*/
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .card{
@@ -25,16 +32,32 @@
     margin: 30px;
     text-align: center;
     overflow: hidden;
+    transition: all ease .3s;
 }
-
 .card label{
     margin: 20px;
 }
+.hover:hover{
+    transform: translate(-5px, -5px);
+}
 
-.cards{
+.newMovie{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #df8765;
+    color: whitesmoke;
+    height: 65px;
+    width: 65px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    transition: all ease .3s;
+}
+.newMovie:hover{
+    color: #df8765;
+    background-color: whitesmoke;
+    border: 1px solid #df8765;
 }

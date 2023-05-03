@@ -1,0 +1,173 @@
+h1{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.contenido {
+    min-height: 74vh;
+    width: 100%;
+    padding: 0%;
+    margin: auto;
+}
+
+.formulario {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.bloque-datos {
+    width: 60%;
+    display: block;
+    padding: 0px 70px;
+}
+.bloque-foto {
+    width: 450px;
+    margin: 20px;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 20px;
+    margin-right: 8%;
+}
+
+.detail{
+    margin: 30px 0;
+}
+.detail input{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    color: gray;
+    text-align: left;
+}
+.detail button{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+    color: black;
+    width: 25%;
+}
+.detail select{
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 15px;
+    padding: 5px;
+    width: 73%;
+    /*width: auto;*/
+}
+.genero{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#publicacion{
+    width: 100%;
+    min-height: 50px;
+    background: rgb(233, 233, 233);;
+    padding: 20px;
+    border-radius: 7px;
+    margin: auto;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(placeholder)
+}
+.commentBoxP{ 
+    color: gray;
+    line-height: 1.5em;
+    text-align: left;
+}
+[contenteditable] {
+    outline: 0px solid transparent;
+}
+
+.tiempo{
+    display: flex;
+    align-items: center;
+}
+#Horas{
+    width: 15%;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+#Minutos{
+    width: 15%;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.portada-peli{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    width: 300px;
+    height: 444px;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+.portada-peli img{
+    width: 300px;
+    height: 444px;
+    z-index: 0;
+}
+.imagen-portada{
+    width: 300px;
+    height: 444px;
+    z-index: 0;
+    overflow: hidden;
+}
+.blank{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(233, 233, 233);
+    transform: translateY(-444px);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cruz{
+    font-size: 100px;
+    color: gray;
+}
+.no-visible{
+    display: none;
+}
+#btn-portada{
+    background-color: transparent;
+    width: 183px;
+    margin-top: 20px;
+}
+
+#addMovie {
+    margin-top: 0;
+    margin-bottom: 60px;
+    background-color: #191919;
+    color: whitesmoke;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #191919;
+    transition: all ease .3s;
+}
+#addMovie:hover {
+    color: #191919;
+    background-color: whitesmoke;
+}

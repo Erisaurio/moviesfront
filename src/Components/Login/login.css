@@ -1,45 +1,53 @@
 a{
-    color:grey;
-  }
-  
-  a:hover{
-    color:rgba(38, 143, 212, 0.644);
-    cursor: pointer;
-  }
-  
-  
-  .background{
-    background-image: url(BK3.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100%;
-    height: 100%;
-    justify-content: center;
-    display: flex;
-    
-  }
-  
-  .loginbox{
-    display: flex;
-    margin-top: 100px;
-    justify-content: center;
-   width: 360px;
-   height: 400px;
-    padding: 13px 14px 19px 15px;
-    border-radius: 25px;
-    align-items: center;
-    background-color: white;
-   
-  }
-  
-  .link{
-    padding-top: 10px;
-  }
-  
-  .text-login{
-    font-size: 30px;
-  }
-  .input-login{
-    text-align: center;
-  }
+  color:grey;
+}
+
+a:hover{
+  color:rgba(74, 138, 255, 0.644);
+  cursor: pointer;
+}
+
+.background{
+  min-height: 89%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../Assets/BK3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.NavUnique{
+  background-color: #ce4a4894;
+  color: whitesmoke;
+  width: 100%;
+  height: 100px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 5;
+}
+
+.loginbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  height: 400px;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.link{
+  padding-top: 10px;
+}
+
+.text-login{
+  font-size: 30px;
+}
+.input-login{
+  text-align: center;
+}

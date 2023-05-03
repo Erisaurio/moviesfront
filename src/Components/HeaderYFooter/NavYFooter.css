@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=PT+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+.Nav{
+    background-color: #D15855;
+    color: whitesmoke;
+    width: 100%;
+    height: 100px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 200px;
+    float: left;
+    padding: 20px;
+    margin-left: 8px;
+}
+
+.icons{
+    margin-right: 15px;
+}
+
+.Buscar{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.Buscar input{
+    width: 400px;
+}
+
+.fa-solid{
+    font-size: 40px;
+    padding: 30px 15px;
+    float: right;
+}
+
+.box{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    min-height: 695px;
+}
+
+.end{
+    background-color: #191919;
+    color: rgba(245, 245, 245, 0.8);
+    width: 100%;
+    height: 100px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logow{
+    width: 160px;
+    padding: 32px;
+}
+
+.fa-copyright{
+    padding: 5px;
+}
