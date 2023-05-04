@@ -7,8 +7,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { ObtenerUsuario } from '../../Services/user.service';
 import { GetMovie} from '../../Services/movies.service';
-import { ObtenerComentaiosMovie } from '../../Services/Comentarios';
-import { ObtenerCriticasMovie } from '../../Services/Criticas';
+import { ObtenerComentaiosMovie ,CrearComentario} from '../../Services/Comentarios';
+import { ObtenerCriticasMovie, CrearCritica } from '../../Services/Criticas';
 
 import poster from '../Assets/Poster.png';
 
@@ -19,6 +19,7 @@ const Movie = () => {
     
     const [CriticaText, setCrititcaText] = useState('');
     const [ComentarioText, setComentariotext] = useState('');
+    const [CriticaStar, setCrititcaStar] = useState('');
 
     const [dataMovie, setDataMovie] = useState([]);
     const [dataUser, setDataUser] = useState([]);
@@ -47,6 +48,7 @@ const Movie = () => {
             console.log(e);
         }
     }
+
 
     const setUser = async (id_user) => {
         try {
@@ -106,8 +108,9 @@ const Movie = () => {
         
         
         showMovie();  
-        setUser(localStorage.getItem('UserId').toString());
-                
+        if(localStorage.getItem('UserId') != null){
+            setUser(localStorage.getItem('UserId').toString());
+        }
     }, []);
 
     return (
@@ -188,19 +191,39 @@ const Movie = () => {
                     
                     dataUser != null && localStorage.getItem('UserId') != null ?
                         <div className="row text_aviso mt-4">
+                            <div className="">Envia Critica</div>
                             <div class="input-group mb-3">
-                                <div className="col-2">Envia Critica</div>
-                                <div className="col-7 p-0 d-flex align-items-center">
+                                
+                                <div className="col-6 ">
                                         <input onChange={e => setCrititcaText(e.target.value)} value={CriticaText} type="text" className="form-control" placeholder="Message..."
                                             aria-label="Message" aria-describedby="basic-addon1" />
                                 </div>
                                 <div className="col-2">
+
+                                    <div className="row">
+                                    
+                                    <div className="col-2"><a onClick={() => { setCrititcaStar(5) }} value={5} type="radio" name="rating" id="5" ><i class="fa-regular fa-star istar" ></i></a></div>
+                                    <div className="col-2"><a onClick={() => { setCrititcaStar(4) }} value={4} type="radio" name="rating" id="4" ><i class="fa-regular fa-star istar" ></i></a></div>
+                                    <div className="col-2"><a onClick={() => { setCrititcaStar(3) }} value={3} type="radio" name="rating" id="3" ><i class="fa-regular fa-star istar" ></i></a></div>
+                                    <div className="col-2"><a onClick={() => { setCrititcaStar(2) }} value={2} type="radio" name="rating" id="2" ><i class="fa-regular fa-star istar" ></i></a></div>
+                                    <div className="col-2"><a onClick={() => { setCrititcaStar(1) }} value={1} type="radio" name="rating" id="1" ><i class="fa-regular fa-star istar" ></i></a></div>
+                                    
+                                    </div>
+                                    <p  >{CriticaStar}</p>
+                                </div>
+                                <div className="col-2">
                                     <div class="buttonml input-group-append">
                                         <a onClick={() => {
-                                            
                                     
-                                    //InsertarAviso(localStorage.getItem("UserId"),idSubGrupo,AvisoText);
-                                                                                    
+                                       if(!CriticaStar == "" || !CriticaStar == null){ 
+                                        alert(CriticaStar);
+                                        
+                                        CrearCritica(dataUser.name, CriticaText, dataMovie._id, dataUser._id, dataUser.filename, parseInt(CriticaStar) );
+                                        setCrititcaStar();
+                                        }
+                                        else{
+                                            alert("no tiene una calificacion")
+                                        }                            
                                     }} class="btn btn-primary" >Button</a>
                                     </div>
                                 </div>
@@ -211,14 +234,15 @@ const Movie = () => {
                     :
                         <div className="col-12" style={{backgroundColor: "lightblue"}}>Inicia Session para hacer una critica</div>
                 }
+                <hr />
                 {
                     dataCriticas != null  ?
-                        <div className="row">
+                        <div className="mt-2 mb-2" >
                             
                             {
                                 dataCriticas.map((Critica, index) =>
                                 
-                                <div key={index}> 
+                                <div className="criticas mt-2 mb-2" key={index}> 
                                 
                                     <div className="col-12">
                                         <div className="row">
@@ -265,10 +289,8 @@ const Movie = () => {
                                 <div className="col-2">
                                     <div class="buttonml input-group-append">
                                         <a onClick={() => {
-                                            
-                                    
-                                    //InsertarAviso(localStorage.getItem("UserId"),idSubGrupo,AvisoText);
-                                                                                    
+                                            CrearComentario(dataUser.name, ComentarioText, dataMovie._id, dataUser._id, dataUser.filename );
+                                                                                   
                                     }} class="btn btn-primary" >Button</a>
                                     </div>
                                 </div>
@@ -286,7 +308,7 @@ const Movie = () => {
                             {
                                 dataComentarios.map((comentario, index) =>
                                 
-                                <div key={index}> 
+                                <div className="comentarios mt-2 mb-2" key={index}> 
                                     <div className="col-12">
                                         <div className="row">
                                             <div className="col-6">

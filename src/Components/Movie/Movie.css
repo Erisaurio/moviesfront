@@ -1,0 +1,15 @@
+.istar{
+    color: #ffed24;
+}
+
+.istar:hover{
+    cursor: pointer;
+}
+
+.criticas{
+    background-color: red;
+}
+
+.comentarios{
+    background-color: green;
+}

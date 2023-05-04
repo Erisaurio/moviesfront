@@ -25,11 +25,15 @@ const ObtenerGenero = async (id_user) => {
     return response?.data ? response?.data : null;
 }
 
-const CrearGenero = async (Genero) => {
+const CrearGenero = async (Genero,access_token) => {
     let response;
 
     try {
-        response = await axios.post(BaseUrlGenero, {  Genero: Genero  });
+        response = await axios.post(BaseUrlGenero, {  Genero: Genero  }, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -37,11 +41,15 @@ const CrearGenero = async (Genero) => {
     return response?.data ? response?.data : null
 }
 
-const EditGenero = async (id_genero,Genero) => {
+const EditGenero = async (id_genero,Genero,access_token) => {
     let response;
-
+    console.log(id_genero);
     try {
-        response = await axios.put(BaseUrlGenero + '/' + id_genero, {  Genero: Genero });
+        response = await axios.put(BaseUrlGenero + '/' + id_genero, {  Genero: Genero }, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -49,11 +57,15 @@ const EditGenero = async (id_genero,Genero) => {
     return response?.data ? response?.data : null
 }
 
-const DeleteGenero = async (id_Genero) => {
+const DeleteGenero = async (id_Genero,access_token) => {
     let response;
 
     try {
-        response = await axios.delete(BaseUrlGenero + '/' + id_Genero);
+        response = await axios.delete(BaseUrlGenero + '/' + id_Genero, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }
