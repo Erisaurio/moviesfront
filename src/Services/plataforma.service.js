@@ -25,4 +25,28 @@ const CrearPlataforma = async (nombre) => {
     return response?.data ? response?.data : null
 }
 
-export { ObtenerPlataformas, CrearPlataforma };
+const EditPlataforma = async (id_plataforma,nombre) => {
+    let response;
+    
+    try {
+        response = await axios.put(BaseUrlPlataforma + '/' + id_plataforma, {  name: nombre });
+    } catch (e) {
+        throw new Error(e.message)
+    }
+
+    return response?.data ? response?.data : null
+}
+
+const DeletePlataforma = async (id_plataforma) => {
+    let response;
+
+    try {
+        response = await axios.delete(BaseUrlPlataforma + '/' + id_plataforma);
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
+
+export { ObtenerPlataformas, CrearPlataforma, EditPlataforma, DeletePlataforma };

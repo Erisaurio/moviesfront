@@ -4,7 +4,7 @@ import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
-
+import {getLoginT} from '../../Services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -58,13 +58,18 @@ const Login = () => {
     const IniciarSesion = async (LogEmail,LogPass) => {
         
         try {
-            getLogin(LogEmail,LogPass)
+            //getLogin(LogEmail,LogPass)
+            getLoginT(LogEmail,LogPass)
             .then((response) => {
                 console.log(response);
-                localStorage.setItem('UserName', response.data.name);
-                localStorage.setItem('UserId', response.data._id);
+                localStorage.setItem('UserName', response.data.user.name);
+                localStorage.setItem('UserId', response.data.user._id);
+                localStorage.setItem('Token', response.data.token);
+                localStorage.setItem('Rol', response.data.user.role);
                 console.log(localStorage.getItem("UserName"));       
-                console.log(localStorage.getItem('UserId').toString());     
+                console.log(localStorage.getItem('UserId').toString());
+                console.log(localStorage.getItem('Token'));     
+                console.log(localStorage.getItem('Rol'));    
                 alert("Inicio de sesion exitoso");   
                 navigate('/Main');  
             })
@@ -133,7 +138,7 @@ const Login = () => {
                                     <button  type="button" class="btn btn-primary" onClick={() => {
                                           IniciarSesion(UserEmail,UserPass);                                                   
                                     }}>Ingresar</button>
-                                    <a onClick={() => {navigate('/Landing');}}> Landing </a>
+                                    {/* <a onClick={() => {navigate('/Landing');}}> Landing </a> */}
                                 </div>
                             </form>
                         </div>
