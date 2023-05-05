@@ -14,7 +14,7 @@ const Main = () => {
    
     const [dataMovies, setMovies] = useState([]);
 
-    const showUsers = async () => {
+    const showMovies = async () => {
         try {
             GetMovies()
             .then((response) => {
@@ -32,7 +32,7 @@ const Main = () => {
 
     useEffect(() => {
         
-        showUsers();
+        showMovies();
                 
     }, []);
 
