@@ -1,0 +1,23 @@
+.cardMovieE{
+    
+    height: fit-content;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    margin: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: all ease .3s;
+}
+
+.card2{
+    
+    height: fit-content;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    margin: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: all ease .3s;
+}
+
+.a_eliminar{
+    color: red;
+}

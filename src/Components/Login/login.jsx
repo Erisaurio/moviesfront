@@ -7,6 +7,8 @@ import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Servic
 import {getLoginT} from '../../Services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
+import swal from 'sweetalert';
+
 const Login = () => {
     const navigate = useNavigate();
 
@@ -70,7 +72,8 @@ const Login = () => {
                 console.log(localStorage.getItem('UserId').toString());
                 console.log(localStorage.getItem('Token'));     
                 console.log(localStorage.getItem('Rol'));    
-                alert("Inicio de sesion exitoso");   
+                //alert("Inicio de sesion exitoso"); 
+                //swal("Inicio de session exito!", "You clicked the button!", "success");     
                 navigate('/Main');  
             })
             .catch((error) => {
@@ -138,12 +141,13 @@ const Login = () => {
                                     <button  type="button" class="btn btn-primary" onClick={() => {
                                           IniciarSesion(UserEmail,UserPass);                                                   
                                     }}>Ingresar</button>
-                                    {/* <a onClick={() => {navigate('/Landing');}}> Landing </a> */}
+                                    
                                 </div>
+                                <a onClick={() => {navigate('/Landing');}}> Landing </a> 
                             </form>
                         </div>
 
-                        <div class="col-md-12 mt-3">
+                        {/* <div class="col-md-12 mt-3">
                             <div className="row">
                             {   
                                 dataUsers.map((User, index) =>
@@ -165,7 +169,9 @@ const Login = () => {
                                 ) 
                             }
                             </div>
-                        </div>
+                        </div> */}
+
+
                     </div>
                 </div>
             </div>

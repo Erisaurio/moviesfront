@@ -22,9 +22,9 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-input[type=number]{
+/* input[type=number]{
     -moz-appearance: textfield;
-}
+} */
 
 .bloque-datos {
     width: 60%;
@@ -170,4 +170,8 @@ input[type=number]{
 #addMovie:hover {
     color: #191919;
     background-color: whitesmoke;
+}
+
+.a_eliminar{
+    color: red;
 }
