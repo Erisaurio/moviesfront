@@ -13,11 +13,15 @@ const ObtenerPlataformas = async () => {
     return response?.data ? response?.data : null;
 }
 
-const CrearPlataforma = async (nombre) => {
+const CrearPlataforma = async (nombre,access_token) => {
     let response;
     console.log(nombre);
     try {
-        response = await axios.post(BaseUrlPlataforma, {name: nombre});
+        response = await axios.post(BaseUrlPlataforma, {name: nombre}, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -25,11 +29,15 @@ const CrearPlataforma = async (nombre) => {
     return response?.data ? response?.data : null
 }
 
-const EditPlataforma = async (id_plataforma,nombre) => {
+const EditPlataforma = async (id_plataforma,nombre,access_token) => {
     let response;
-    
+   
     try {
-        response = await axios.put(BaseUrlPlataforma + '/' + id_plataforma, {  name: nombre });
+        response = await axios.put(BaseUrlPlataforma + '/' + id_plataforma, {  name: nombre }, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }
@@ -37,11 +45,15 @@ const EditPlataforma = async (id_plataforma,nombre) => {
     return response?.data ? response?.data : null
 }
 
-const DeletePlataforma = async (id_plataforma) => {
+const DeletePlataforma = async (id_plataforma,access_token) => {
     let response;
 
     try {
-        response = await axios.delete(BaseUrlPlataforma + '/' + id_plataforma);
+        response = await axios.delete(BaseUrlPlataforma + '/' + id_plataforma, {
+            headers: {
+              'Authorization': `token ${access_token}`
+            }
+          });
     } catch (e) {
         throw new Error(e.message)
     }

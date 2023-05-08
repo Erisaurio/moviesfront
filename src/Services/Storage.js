@@ -47,4 +47,26 @@ const EditMovieImg = async (id_movie,formData) => {
     return response?.data ? response?.data : null
 }
 
-export { EditUserImg, EditMovieImg};
+const EditCastImg = async (id_cast,formData) => {
+  debugger
+    let response;
+    axios({
+        method: "put",
+        url: `http://localhost:3001/api/Storage/Cast/${id_cast}`,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+          
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+          
+        });
+    return response?.data ? response?.data : null
+}
+
+export { EditUserImg, EditMovieImg, EditCastImg};

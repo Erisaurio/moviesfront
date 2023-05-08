@@ -1,5 +1,6 @@
 import './User.css'
-import Header from "../HeaderYFooter/Header";
+//import Header from "../HeaderYFooter/Header";
+import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 
@@ -11,8 +12,8 @@ import { EditUserImg } from '../../Services/Storage';
 import { useNavigate } from 'react-router-dom';
 
 import poster from '../Assets/Poster.png';
+import swal from 'sweetalert';
 
-import axios from 'axios';
 
 const FormData = require('form-data');
 
@@ -83,7 +84,7 @@ const User = () => {
     const EditarUser = async (name,Email,Pass) => {
         
         try {
-            EditUser(localStorage.getItem('UserId'),name,Email,Pass)
+            EditUser(localStorage.getItem('UserId'),name,Email,Pass,localStorage.getItem('Token'))
             .then((response) => {
                 console.log(response);
                 //alert("User Editado"); 
@@ -102,7 +103,7 @@ const User = () => {
     }
 
     const UpdateView = () => {
-        alert("informacion cambiada");
+        swal("exito!", "Cambio de informacion fue un exito!", "success"); 
         setUser(localStorage.getItem('UserId').toString());
     }
 
