@@ -1,5 +1,6 @@
 import './NewMovie.css'
-import Header from "../HeaderYFooter/Header";
+//import Header from "../HeaderYFooter/Header";
+import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
 import pelis from '../Assets/pinocho.jpeg';
 
@@ -277,8 +278,17 @@ const NewMovie = () => {
                                                     }}>Agregar</button>
                                                 </div>
                                                 
-                                                <div id="publicacion" className='col-auto text-center detail'>
-                                                    <div id="commentBoxP" contenteditable="true" dir="auto" class="commentBoxP" placeholder="Sinopsis"></div>
+                                                <h1>Agrega una Sinopsis</h1>
+                                                <div className="col-auto text-center detail">
+                                                    
+                                                    <input style={{'width':'100%'}}
+                                                        type="text"
+                                                        className="input-login"
+                                                        id="Moviename"
+                                                        placeholder="Nombre de la película"
+                                                        onChange={e => setSMovie(e.target.value)} value={Sinopsis}
+                                                    />
+                        
                                                 </div>
                                                 <div className="col-auto text-center detail tiempo">
                                                     <label>Duración: </label>

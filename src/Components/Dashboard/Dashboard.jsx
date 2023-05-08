@@ -285,7 +285,7 @@ const Dashboard = () => {
                                             <div class="tab-pane active" id="tab1">
                                                 {/* tab1 */}
                                                 <h3>Info de las tablas</h3>
-                                                <a class="btn btn-primary btnNext" >Next</a>
+                                               
                                             </div>
                                             <div class="tab-pane" id="tab2">
                                                 {/* tab2 Admin users */}

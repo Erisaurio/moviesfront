@@ -138,7 +138,7 @@ const Header = () => {
                         
                         {
                             localStorage.getItem('Rol') ==  "Admin" ?
-                                <ul class="nav col-12 col-lg-auto me-lg-5 ms-lg-2 mb-2 justify-content-center mb-md-0">
+                                <ul class="nav col-12 col-lg-auto me-lg-5 mb-2 justify-content-center mb-md-0">
                                     <li><a onClick={() => {navigate('/Main');}} class="nav-link px-2 text-white">Home</a></li>
                                     <li><i className="fa-solid fa-clapperboard"></i><a onClick={() => {navigate('/Movies');}} class="nav-link px-2 text-white">Movies</a></li>
                                     <li><a onClick={() => {navigate('/Login');}} class="nav-link px-2 text-white">Login</a></li>
@@ -149,7 +149,7 @@ const Header = () => {
                                     
                                 </ul>
                             :
-                                <ul class="nav col-12 col-lg-auto me-lg-5 ms-lg-2 mb-2 justify-content-center mb-md-0">
+                                <ul class="nav col-12 col-lg-auto me-lg-5  mb-2 justify-content-center mb-md-0">
                                     <li><a onClick={() => {navigate('/Main');}} class="nav-link px-2 text-white">Home</a></li>
                                     <li><a onClick={() => {navigate('/Movies');}} class="nav-link px-2 text-white"><br />Movies</a></li>
                                     <li><a onClick={() => {navigate('/Login');}} class="nav-link px-2 text-white">Login</a></li>
@@ -165,7 +165,7 @@ const Header = () => {
 
                         <br />
 
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 ms-lg-4 me-lg-auto ml-2">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0  me-lg-auto ml-2">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
                         </form>
 
@@ -176,9 +176,10 @@ const Header = () => {
                             <div className="row  align-items-center">
                                 
                                 <div className="col-5">
-                                    
-                                    <h6 style={{color: "white"}} >UserName: {localStorage.getItem("UserName")}</h6>
-                                    <h6 style={{color: "white"}} >Rol: {localStorage.getItem("Rol")}</h6>
+                                    <p>UserName:</p>
+                                    <p style={{color: "white"}} > {localStorage.getItem("UserName")}</p>
+                                    <p>UserName:</p>
+                                    <p style={{color: "white"}} > {localStorage.getItem("Rol")}</p>
                                     <button onClick={() => {
                                             
                                             navigate('/User');  

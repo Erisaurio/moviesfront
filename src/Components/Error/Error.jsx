@@ -1,5 +1,6 @@
 import '../HeaderYFooter/NavYFooter.css'
-import Header from "../HeaderYFooter/Header";
+//import Header from "../HeaderYFooter/Header";
+import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
 import * as React from "react";
 import Spill from '../Assets/our spill2.png';

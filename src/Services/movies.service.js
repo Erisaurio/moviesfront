@@ -13,6 +13,18 @@ const GetMovies = async () => {
     return response?.data ? response?.data : null;
 }
 
+const GetMoviesGenero = async ( genero ) => {
+    let response;
+    debugger
+    try {
+        response = await axios.get(BaseUrlPeliculas + "/Genero/" + genero );
+    } catch (e) {
+        throw new Error(e.message)
+    }
+    
+    return response?.data ? response?.data : null;
+}
+
 const Get6Movies = async () => {
     let response;
 
@@ -88,4 +100,4 @@ const DeleteMovie = async (id_movie,access_token) => {
     return response?.data ? response?.data : null;
 }
 
-export { GetMovies, GetMovie, CrearMovie ,UpdateMovie, DeleteMovie, Get6Movies};
+export { GetMovies, GetMovie, CrearMovie ,UpdateMovie, DeleteMovie, Get6Movies, GetMoviesGenero};

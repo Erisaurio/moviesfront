@@ -1,10 +1,11 @@
 import './Movies.css'
-import Header from "../HeaderYFooter/Header";
+//import Header from "../HeaderYFooter/Header";
+import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 import { useNavigate } from 'react-router-dom';
 
-import {GetMovies} from '../../Services/movies.service';
+import {GetMovies , GetMoviesGenero} from '../../Services/movies.service';
 import { ObtenerGeneros } from '../../Services/generos.service';
 
 import poster from '../Assets/Poster.png';
@@ -18,6 +19,19 @@ const Movies = () => {
     ///
     const [selectedG, setFilterGenero] = useState('');
     const [FilterNameMovie, setFilterName] = useState('');
+
+    const filterGenero = async (Genero) => {
+        //alert(Genero)
+        debugger
+        if(Genero != ""){
+            
+            showMoviesGenero(Genero);
+        }
+        else{
+            
+            showMovies();
+        }
+    }
 
     const showGenero = async () => {
         try {
@@ -52,6 +66,23 @@ const Movies = () => {
         }
     }
 
+    const showMoviesGenero = async (genero) => {
+        try {
+            debugger
+            GetMoviesGenero(genero)
+            .then((response) => {
+                const data = response.data;
+                setMovies(response.data);
+                console.log(response);              
+            })
+            .catch((error) => {
+                console.log(error);
+            });    
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     useEffect(() => {
         
         showMovies();
@@ -68,7 +99,7 @@ const Movies = () => {
             <br/>
                 <div className="row justify-content-center">
 
-                    <div className="col-7">
+                    <div className="col-6">
                                                         
                         <input style={{'width':'100%'}}
                             type="text"
@@ -80,8 +111,8 @@ const Movies = () => {
 
                     </div>
 
-                    <div className="col-3">
-                        <select placeholder='Generos' name="Generos" onChange={e => setFilterGenero(e.target.value)}>
+                    <div className="col-2">
+                        <select placeholder='Generos' name="Generos" onChange={e => filterGenero(e.target.value)}>
                             <option value="">Género</option>
                             {   
                                 ///navigate(`/topic/${props.id}`)
@@ -92,6 +123,15 @@ const Movies = () => {
                             }
                         </select>
                     
+                        
+                    </div>
+
+                    <div className="col-2">
+                        
+                    <button className="btn btn-primary d-block w-100"  style={{background: '#d15855'}} onClick={() => {
+                        //alert(`alert: ${Generos._id}`);  
+                        showMovies();                                      
+                        }} >Quitar filtros</button>
                         
                     </div>
                     
@@ -157,7 +197,13 @@ const Movies = () => {
                                             <p> sipn: {Movie.Sinopsis}</p>
                                             <h4 >email: {Movie.Fecha}</h4>
                                             <p> img: {Movie.Portada}</p>
+
+                                            {/* genero */}
                                             
+                                            <p>{Movie.Generos}</p>
+                                            
+                                            {/* end */}
+
                                         </div>
                                     </div>
                                 
