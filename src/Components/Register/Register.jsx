@@ -1,13 +1,14 @@
 import './Register.css'
-import Header from "../Header/Header";
-import Footer from '../Footer/Footer';
+import '../HeaderYFooter/NavYFooter.css'
+import Logo from '../Assets/Logo.png';
+import Footer from '../HeaderYFooter/Footer';
 import { useNavigate } from 'react-router-dom';
 import {useState, useRef, useEffect} from "react"
 import '../../css/Login-Form-Clean.css'; 
 import '../../css/Navigation-with-Button.css'; 
 import '../../css/Registration-Form-with-Photo.css'; 
 import '../../css/styles.css'; 
-import logo from '../../img/logo.png';
+import swal from 'sweetalert';
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
 
@@ -183,45 +184,35 @@ const Register = () => {
         // </div>
 
         <>
-        <nav className="navbar navbar-light navbar-expand-lg navigation-clean-button" style={{background: '#d15855'}}>
-          <div className="container">
-            <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1">
-              <span className="visually-hidden">Toggle navigation</span>
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <img src={logo} className='logoNav' alt="AAA" />
-            <div className="collapse navbar-collapse" id="navcol-1" style={{fontFamily: 'Roboto, sans-serif', fontWeight: 'bold'}}>
-              
-              <ul className="navbar-nav me-auto">
-                <li className="nav-item"><a className="nav-link active" href="#" style={{color: 'rgb(255,255,255)'}}>Inicio</a></li>
-                <li className="nav-item"></li>
-              </ul>
-              <span className="navbar-text actions" style={{color: 'rgba(255,255,255,0.55)'}}>
-                <a className="login" href="#" style={{color: 'rgb(255,255,255)'}}>Iniciar Sesion</a>
-              </span>
-            </div>
-          </div>
-        </nav>
-  
-        <section className="register-photo">
-        <h1 className="bienvenidosTitle">¡Bienvenido a Filmbox!</h1>
-          <div className="form-container">
-            <div className="image-holder"></div>
-            <form method="post">
-              <h2 className="text-center"><strong>Create</strong> an account.</h2>
-              <div className="mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => setUserName(e.target.value)} value={UserName}/></div>
-              <div className="mb-3"><input className="form-control" type="email" name="email" placeholder="Email" onChange={e => setUserEmail(e.target.value)} value={UserEmail}/></div>
-              <div className="mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setUserPass(e.target.value)} value={UserPass}/></div>
-              <div className="mb-3"><input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" /></div>
-              <div className="mb-3"></div>
-              <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
-                                                    CrearUser(UserName,UserEmail,UserPass);                                            
-                                                  }}>Registrarse</button></div>
+        <header className="Nav">
+        <a onClick={() => {navigate('/Landing');}}><img src={Logo} className="logo"/></a>
+        </header>
+        <div className="box">
+          <section className="register-photo">
+          <h1 className="bienvenidosTitle">¡Bienvenido a Filmbox!</h1>
+            <div className="form-container">
+              <div className="image-holder"></div>
+              <form method="">
+                <h2 className="text-center"><strong>Create</strong> an account.</h2>
+                <div className="mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => setUserName(e.target.value)} value={UserName}/></div>
+                <div className="mb-3"><input className="form-control" type="email" name="email" placeholder="Email" onChange={e => setUserEmail(e.target.value)} value={UserEmail}/></div>
+                <div className="mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setUserPass(e.target.value)} value={UserPass}/></div>
+                <div className="mb-3"></div>
+                <div className="mb-3"></div>
+                <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                    CrearUser(UserName,UserEmail,UserPass,"User");    
+                    swal("Registro exitoso!", "Da click para continuar!", "success");    
+                    navigate('/Login');                                    
+                }}>Registrarse</button></div>
+                
+                <a className="already" onClick={() => {navigate('/Login');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>
 
-              <a className="already" href="#">¿Ya tienes una cuenta? Inicia sesión.</a>
-            </form>
-          </div>
-        </section>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <Footer/>
   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         </>

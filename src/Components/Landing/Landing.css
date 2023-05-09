@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=PT+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+}
+
+.bodyBox{
+  background-color: #191919;
+}
+
+.hero{
+  background-image: linear-gradient(to right, rgb(255, 129, 119, 0.7) 0%, rgb(255, 134, 122, 0.7) 0%, rgb(255, 140, 127, 0.7) 21%, rgba(249, 144, 133, 0.7) 52%, rgba(207, 85, 107, 0.7) 78%, rgb(177, 42, 91, 0.7) 100%), url("../Assets/pelis.png");
+  width: 100%;
+  height: 650px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.textos-hero{
+  height: 500px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textos-hero h1{
+  font-size: 60px;
+}
+
+.textos-hero p{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.textos-hero a{
+  display: inline-flexbox;
+  text-decoration: none;
+  padding: 12px 15px;
+  background: #372222;
+  border-radius: 8px;
+  color: white;
+  margin: 2px;
+}
+
+.svg-hero{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.movie{
+  width: 100%;
+  transform: translateY(-70px);
+  margin: 0;
+  padding: 0;
+  max-width: 885px;
+
+}

@@ -1,9 +1,13 @@
 import './login.css'
+import Logo from '../Assets/Logo.png';
+import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
-
+import {getLoginT} from '../../Services/auth.service';
 import { useNavigate } from 'react-router-dom';
+
+import swal from 'sweetalert';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -56,14 +60,20 @@ const Login = () => {
     const IniciarSesion = async (LogEmail,LogPass) => {
         
         try {
-            getLogin(LogEmail,LogPass)
+            //getLogin(LogEmail,LogPass)
+            getLoginT(LogEmail,LogPass)
             .then((response) => {
                 console.log(response);
-                localStorage.setItem('UserName', response.data.name);
-                localStorage.setItem('UserId', response.data._id);
+                localStorage.setItem('UserName', response.data.user.name);
+                localStorage.setItem('UserId', response.data.user._id);
+                localStorage.setItem('Token', response.data.token);
+                localStorage.setItem('Rol', response.data.user.role);
                 console.log(localStorage.getItem("UserName"));       
-                console.log(localStorage.getItem('UserId').toString());     
-                alert("Inicio de sesion exitoso");   
+                console.log(localStorage.getItem('UserId').toString());
+                console.log(localStorage.getItem('Token'));     
+                console.log(localStorage.getItem('Rol'));    
+                //alert("Inicio de sesion exitoso"); 
+                //swal("Inicio de session exito!", "You clicked the button!", "success");     
                 navigate('/Main');  
             })
             .catch((error) => {
@@ -79,118 +89,96 @@ const Login = () => {
     useEffect(() => {
         
 
-        showUsers();  
+        //showUsers();  
             //console.log(dataUsers);
-            
+            ObtenerUsuarios()
+            .then((response) => {
+                const data = response.data;
+                setDataUser(response.data);
+                console.log(response);              
+            })
+            .catch((error) => {
+                console.log(error);
+            });    
+            console.log(dataUsers);
                 
     }, []);
 
     return (
+        <>
+        <header className="NavUnique">
+        <a onClick={() => {navigate('/Landing');}}><img src={Logo} className="logo"/></a>
+        </header>
 
-        <div className='login container-fuid d-flex flex-column justify-content-center align-items-center p-0'>
-            <div className='row w-50 d-flex justify-content-center tarjeta-login m-0'>
-
-             
-                
-                <div className='col-12 mt-3 mb-2 p-0 d-flex justify-content-center align-items-center'>
-                    <form className="row d-flex flex-column g-3">
-                        <div className="col-auto text-center">
-                            <label className='text-login'>Login</label>
-                        </div>
-
-                        <div className="col-auto text-center">
-
-                            <input
-                                
-                                type="text"
-                                className="input-login"
-                                id="Email_log"
-                                placeholder="Email"
-                                onChange={e => setLogEmail(e.target.value)} value={LogEmail}
-                                />
-
-                        </div>
-                        <div className="col-auto text-center">
-
-                            <input
-                                
-                                type="password"
-                                className="input-login"
-                                id="password_log"
-                                placeholder="Password"
-                                onChange={e => setLogPass(e.target.value)} value={LogPass}
-                                 />
-
-                        </div>
-                       
-                        <div className="col-12 d-flex flex-column">
-
-                            <button  type="button" class="btn btn-primary" onClick={() => {
-                              
-                              IniciarSesion(LogEmail,LogPass);
-                                                                               
-                            }}>log</button>
-
-                            {/*<Link to="/register">
-                                ¿No tienes cuenta? Registrate
-                            </Link> */}
-                        </div>
-                    </form>
-                    
-                </div>
-                <br />
-                    <a onClick={() => {navigate('/Register');}}> Register </a>
-
-                <div class="col-md-12 mt-3">
-                   <div className="row">
-                    {   
-                        dataUsers.map((User, index) =>
-                        <div key={index}
-                            onClick={() => {
-                                alert(User._id);
-                                setUser(User._id);
-                              }}
-                            className="col-4 ">
-                               
-                                <div class="card">
-                                  <div class="card-body">
-                                    <h5 >Name: {User.name}</h5>
-                                    <h4 >email: {User.email}</h4>
-                                    <p> pass: {User.password}</p>
-                                    <p> role: {User.role} </p>
-                                  </div>
+        <div className='background'>
+            <div className='loginbox'>
+                <div className='login container-fuid d-flex flex-column justify-content-center align-items-center p-0'>
+                    <div className='row w-50 d-flex justify-content-center tarjeta-login m-0'>
+                        <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
+                            <form className="row d-flex flex-column g-3">
+                                <div className="col-auto text-center">
+                                    <label className='text-login'>Login</label>
                                 </div>
-                            
-                        </div>
-                      ) 
-                    }
-                </div>
-
-                </div>
-
-                <div class="col-md-12 mt-3">
-                   <div className="row">
-                    {   
-                         
-                        <div className="col-6">
-                               
-                                <div class="card">
-                                  <div class="card-body">
-                                    <h5 >Name: {dataUser.name}</h5>
-                                    <h4 >email: {dataUser.email}</h4>
-                                    <p> pass: {dataUser.password}</p>
-                                    <p> role: {dataUser.role} </p>
-                                  </div>
+                                <div className="col-auto text-center">
+                                    <input
+                                        type="text"
+                                        className="input-login"
+                                        id="Email"
+                                        placeholder="Email"
+                                        onChange={e => setUserEmail(e.target.value)} value={UserEmail}
+                                    />
                                 </div>
-                            
+                                <div className="col-auto text-center">
+                                    <input 
+                                        type="password"
+                                        className="input-login"
+                                        id="password"
+                                        placeholder="Password"
+                                        onChange={e => setUserPass(e.target.value)} value={UserPass}
+                                    />
+                                </div>
+                                <div className="col-12 d-flex flex-column">
+                                    <button  type="button" class="btn btn-primary" onClick={() => {
+                                          IniciarSesion(UserEmail,UserPass);                                                   
+                                    }}>Ingresar</button>
+                                    
+                                </div>
+                                <a onClick={() => {navigate('/Landing');}}> Landing </a> 
+                            </form>
                         </div>
-                      
-                    }
-                  </div>
-                </div>   
 
+                        {/* <div class="col-md-12 mt-3">
+                            <div className="row">
+                            {   
+                                dataUsers.map((User, index) =>
+                                <div key={index}
+                                    onClick={() => {
+                                        alert(User._id);
+                                      
+                                    }}
+                                className="col-4 ">
+                                    <div class="card">
+                                      <div class="card-body">
+                                        <h5 >Name: {User.nombre}</h5>
+                                        <h4 >email: {User.email}</h4>
+                                        <p> pass: {User.password}</p>
+                                        <p> role: {User.role} </p>
+                                      </div>
+                                    </div>
+                                </div>
+                                ) 
+                            }
+                            </div>
+                        </div> */}
+
+
+                    </div>
+                </div>
             </div>
         </div>
+        
+        <Footer/>
+        </>
     );
 }
 
