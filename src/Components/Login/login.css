@@ -35,10 +35,16 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  margin-top: 100px;
+  width: 360px;
+  height: 390px;
   border-radius: 25px;
   background-color: white;
+
+  outline: 3px solid #D15855;
+  outline-offset: -20px;
+  
+
 }
 
 .link{
@@ -47,7 +53,25 @@ a:hover{
 
 .text-login{
   font-size: 30px;
+  margin-top: 5px;
+}
+
+.text-login::after{
+  content: " ";
+  position: absolute;
+  display: block;
+  left: 40.3%;
+  bottom: 25;
+  width: 18.5%;
+  height: 1px;
+  background-color: lightgrey;
 }
 .input-login{
   text-align: center;
+  font-size: 90%;
+}
+
+.sincuenta{
+  font-size: 80%;
+  margin-top: 20px;
 }
