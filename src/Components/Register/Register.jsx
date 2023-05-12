@@ -8,6 +8,7 @@ import '../../css/Login-Form-Clean.css';
 import '../../css/Navigation-with-Button.css'; 
 import '../../css/Registration-Form-with-Photo.css'; 
 import '../../css/styles.css'; 
+import swal from 'sweetalert';
 
 import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
 
@@ -191,15 +192,17 @@ const Register = () => {
           <h1 className="bienvenidosTitle">¡Bienvenido a Filmbox!</h1>
             <div className="form-container">
               <div className="image-holder"></div>
-              <form method="post">
+              <form method="">
                 <h2 className="text-center"><strong>Create</strong> an account.</h2>
                 <div className="mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => setUserName(e.target.value)} value={UserName}/></div>
                 <div className="mb-3"><input className="form-control" type="email" name="email" placeholder="Email" onChange={e => setUserEmail(e.target.value)} value={UserEmail}/></div>
                 <div className="mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setUserPass(e.target.value)} value={UserPass}/></div>
-                <div className="mb-3"><input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" /></div>
+                <div className="mb-3"></div>
                 <div className="mb-3"></div>
                 <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
-                    CrearUser(UserName,UserEmail,UserPass);                                            
+                    CrearUser(UserName,UserEmail,UserPass,"User");    
+                    swal("Registro exitoso!", "Da click para continuar!", "success");    
+                    navigate('/Login');                                    
                 }}>Registrarse</button></div>
                 
                 <a className="already" onClick={() => {navigate('/Login');}}> ¿Ya tienes una cuenta? Inicia sesión. </a>

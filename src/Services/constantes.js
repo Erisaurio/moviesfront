@@ -6,6 +6,7 @@ const BaseStorageUrl = 'http://localhost:3001/api/Storage';
 const BaseComentarioseUrl = 'http://localhost:3001/api/Comentario';
 const BaseCriticaUrl = 'http://localhost:3001/api/Critica';
 const Baserauth = "http://localhost:3001/api/auth/Login";
+const BaseCast = "http://localhost:3001/api/cast";
 
 export {
     BaseUrlUser,
@@ -15,5 +16,6 @@ export {
     BaseStorageUrl,
     BaseComentarioseUrl,
     BaseCriticaUrl, 
-    Baserauth
+    Baserauth,
+    BaseCast
 }
