@@ -149,3 +149,14 @@
 .content-table tbody .columna:hover{
     background-color: #F9E784;
 }
+
+.aviso{
+    margin: 80px;
+  
+}
+p.avisoT{
+    font-size: 30px;
+}
+ .lock{
+    width: 30%;
+}
