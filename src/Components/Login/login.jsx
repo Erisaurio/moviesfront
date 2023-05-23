@@ -55,17 +55,23 @@ const Login = () => {
         }
     }
 
-    const IniciarSesion = async (LogEmail,LogPass) => {
+     const IniciarSesion = async (LogEmail,LogPass) => {
         
         try {
-            getLogin(LogEmail,LogPass)
+            //getLogin(LogEmail,LogPass)
+            getLoginT(LogEmail,LogPass)
             .then((response) => {
                 console.log(response);
-                localStorage.setItem('UserName', response.data.name);
-                localStorage.setItem('UserId', response.data._id);
+                localStorage.setItem('UserName', response.data.user.name);
+                localStorage.setItem('UserId', response.data.user._id);
+                localStorage.setItem('Token', response.data.token);
+                localStorage.setItem('Rol', response.data.user.role);
                 console.log(localStorage.getItem("UserName"));       
-                console.log(localStorage.getItem('UserId').toString());     
-                alert("Inicio de sesion exitoso");   
+                console.log(localStorage.getItem('UserId').toString());
+                console.log(localStorage.getItem('Token'));     
+                console.log(localStorage.getItem('Rol'));    
+                //alert("Inicio de sesion exitoso"); 
+                //swal("Inicio de session exito!", "You clicked the button!", "success");     
                 navigate('/Main');  
             })
             .catch((error) => {

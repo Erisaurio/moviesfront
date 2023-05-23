@@ -13,6 +13,17 @@ const GetMovies = async () => {
     return response?.data ? response?.data : null;
 }
 
+
+const GetMoviesHighestRated = async () => {
+    let response;
+
+    try {
+        response = await axios.get(BaseUrlPeliculas + "/AscPromedio");
+    } catch (e) {
+        throw new Error(e.message)
+    }
+}
+
 const GetMoviesGenero = async ( genero ) => {
     let response;
     debugger
@@ -100,4 +111,5 @@ const DeleteMovie = async (id_movie,access_token) => {
     return response?.data ? response?.data : null;
 }
 
-export { GetMovies, GetMovie, CrearMovie ,UpdateMovie, DeleteMovie, Get6Movies, GetMoviesGenero};
+export { GetMovies, GetMovie, CrearMovie ,UpdateMovie, DeleteMovie, Get6Movies, GetMoviesGenero, GetMoviesHighestRated};
+
