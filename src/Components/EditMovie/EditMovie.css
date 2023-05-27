@@ -21,3 +21,14 @@
 .a_eliminar{
     color: red;
 }
+
+.aviso{
+    margin: 80px;
+  
+}
+p.avisoT{
+    font-size: 30px;
+}
+ .lock{
+    width: 30%;
+}

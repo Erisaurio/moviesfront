@@ -2,3 +2,14 @@
     width: 180px;
     height: 180px;
 }
+
+.aviso{
+    margin: 80px;
+  
+}
+p.avisoT{
+    font-size: 30px;
+}
+ .lock{
+    width: 30%;
+}

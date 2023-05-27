@@ -2,6 +2,7 @@ import './User.css'
 //import Header from "../HeaderYFooter/Header";
 import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
+import Lock from '../Assets/lock.png';
 import {useState, useRef, useEffect} from "react"
 
 import { ObtenerUsuario, EditUser } from '../../Services/user.service';
@@ -341,9 +342,10 @@ const User = () => {
                     </div>
 
                 :
-                    <div className="col-12" style={{backgroundColor: "lightblue"}}>
-                        <h3>No Inicio Session</h3>
-                    </div>
+                <div className="aviso">
+                <img src={Lock} className="lock" />
+               <p class="avisoT">Necesitas Iniciar Sesión</p>
+           </div>
             }
             <Footer/>
 
