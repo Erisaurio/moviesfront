@@ -3,8 +3,8 @@ import Logo from '../Assets/Logo.png';
 import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 
-import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
-
+import { ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin } from '../../Services/user.service';
+import { getLoginT } from '../../Services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
