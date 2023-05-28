@@ -128,7 +128,7 @@ const Movies = () => {
 
                     <div className="col-2">
                         
-                    <button className="btn btn-primary d-block w-100"  style={{background: '#d15855'}} onClick={() => {
+                    <button className="btn d-block w-100" onClick={() => {
                         //alert(`alert: ${Generos._id}`);  
                         showMovies();                                      
                         }} >Quitar filtros</button>
