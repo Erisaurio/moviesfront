@@ -139,7 +139,7 @@ const Login = () => {
                                     />
                                 </div>
                                 <div className="col-12 d-flex flex-column">
-                                    <button  type="button" class="btn btn-dark" onClick={() => {
+                                    <button  type="button" class="btn btn-logIn btn-dark" onClick={() => {
                                           IniciarSesion(UserEmail,UserPass);                                                   
                                     }}>Ingresar</button>
 

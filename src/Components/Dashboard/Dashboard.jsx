@@ -260,14 +260,12 @@ const Dashboard = () => {
                                             <div class="position-sticky">
                                                 <div className="h3">Dashboard</div>
                                                 <div class="list-group list-group-flush mx-3 mt-4">
-                                                    <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-                                                        Informes</a>
-                                                    <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                                        Admin usuarios</a>
+                                                    <a class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                                        Usuarios</a>
                                                     <a class="nav-link" id="nav-Cusro-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="nav-Cusro" aria-selected="false">
-                                                        Admin Generos</a>
+                                                        Géneros</a>
                                                     <a class="nav-link" id="nav-Historial-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="nav-Historial" aria-selected="false">
-                                                        Admin Pelis</a>
+                                                        Películas</a>
                                                     <a class="nav-link" id="nav-Historial-tab" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab" aria-controls="nav-Historial" aria-selected="false">
                                                         Casts</a>
                                                     <a class="nav-link" id="nav-Historial-tab" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab" aria-controls="nav-Historial" aria-selected="false">
@@ -283,16 +281,11 @@ const Dashboard = () => {
                                     </div>
                                     <div className="col-8">
                                         <div class="tab-content">
-                                            <div class="tab-pane active" id="tab1">
-                                                {/* tab1 */}
-                                                <h3>Info de las tablas</h3>
-                                               
-                                            </div>
-                                            <div class="tab-pane" id="tab2">
+                                            <div class="tab-pane active" id="tab2">
                                                 {/* tab2 Admin users */}
-                                                <h3>Admin Usuarios</h3>
+                                                <h3>Crear Usuarios</h3>
                                                 <br />
-                                                <p>crear usuarios rol: Admin</p>
+                                                <p>Crear usuarios rol: Administrador</p>
                                                 
                                                 <div className="row justify-content-center">
                                                 
@@ -302,7 +295,7 @@ const Dashboard = () => {
                                                         <div className="col-12 mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setUserPass(e.target.value)} value={UserPass}/></div>
                                                         <div className="col-12 mb-3"><input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" /></div>
                                                         <div className="col-12 mb-3"></div>
-                                                        <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                        <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                             CrearUser(UserName,UserEmail,UserPass,"Admin",localStorage.getItem('Token'));
                                                             showAdmins();
                                                             setUserName("");        
@@ -310,14 +303,14 @@ const Dashboard = () => {
                                                             setUserPass("");  
                                                             swal("exito!", "Se Creo un Admin!", "success"); 
                                                             showAdmins(); 
-                                                        }}>Registrar Admin</button></div>
+                                                        }}>Registrar Administrador</button></div>
                                                     </div>
                                                     <div className="col-4">
                                                         <div className="col-12 mb-3"><input className="form-control" type="text" name="username" placeholder="id" readonly onChange={e => setEUserid(e.target.value)} value={EUserid} readOnly={true}/></div>
                                                         <div className="col-12 mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => setEUserName(e.target.value)} value={EUserName}/></div>
                                                         <div className="col-12 mb-3"><input className="form-control" type="email" name="email" placeholder="Email" onChange={e => setEUserEmail(e.target.value)} value={EUserEmail}/></div>
                                                         <div className="col-12 mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setEUserPass(e.target.value)} value={EUserPass}/></div>
-                                                        <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                        <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                             EditUser(EUserid,UserName,UserEmail,UserPass,localStorage.getItem('Token'));
                                                             showAdmins();
                                                             setEUserid("");
@@ -337,7 +330,7 @@ const Dashboard = () => {
                                                 
                                                 <hr />
                                                     <div class="title">
-                                                        <h4>Usuarios Admin</h4>
+                                                        <h4>Usuarios Administradores</h4>
                                                     </div>
                                                     
                                                     <div className='tabla'>
@@ -345,7 +338,7 @@ const Dashboard = () => {
                                                             <table class="table table-hover mt-1 content-table">
                                                                 <thead className='thead'>
                                                                 <tr className='columna'>
-                                                                    <th class="table-secondary one" scope="col">nombre</th>
+                                                                    <th class="table-secondary one" scope="col">Imagen</th>
                                                                     <th class="table-secondary one" scope="col">Usuario</th>
                                                                     <th class="table-secondary one" scope="col">Rol</th>
                                                                     <th class="table-secondary one" scope="col">Fecha</th>    
@@ -360,7 +353,7 @@ const Dashboard = () => {
                                                                             onClick={() => {   
                                                                         }}>
                                                                             {Admins.filename == "" ?
-                                                                            <th className='one' scope="col"><img style={{height:"62px", width:"62px"}} src={avatar} alt="" /></th>
+                                                                            <th className='one' scope="col"><img className='profileuser' src={avatar} alt="" /></th>
                                                                             : 
                                                                             <th className='one' scope="col"><img class="profileuser" src={`http://localhost:3001/${Admins.filename}`}/></th>
                                                                             }
@@ -423,7 +416,7 @@ const Dashboard = () => {
                                                             <table class="table table-hover mt-1 content-table">
                                                                 <thead className='thead'>
                                                                 <tr className='columna'>
-                                                                    <th class="table-secondary one" scope="col">Icono</th>
+                                                                    <th class="table-secondary one" scope="col">Imagen</th>
                                                                     <th class="table-secondary one" scope="col">Usuario</th>
                                                                     <th class="table-secondary one" scope="col">Rol</th>
                                                                     <th class="table-secondary one" scope="col">Fecha</th>     
@@ -437,7 +430,7 @@ const Dashboard = () => {
                                                                             onClick={() => {   
                                                                         }}>
                                                                             {Users.filename == "" ?
-                                                                            <th className='one' scope="col"><img style={{height:"62px", width:"62px"}} src={avatar} alt="" /></th>
+                                                                            <th className='one' scope="col"><img className='profileuser' src={avatar} alt="" /></th>
                                                                             : 
                                                                             <th className='one' scope="col"><img class="profileuser" src={`http://localhost:3001/${Users.filename}`}/></th>
                                                                             }
@@ -484,38 +477,38 @@ const Dashboard = () => {
 
                                             </div>
                                             <div class="tab-pane" id="tab3">
-                                                <h3>Agregar, Editar y eliminar Generos</h3>
+                                                <h3>Agregar, editar y eliminar géneros</h3>
                                                 <p>crear usuarios rol: Admin</p>
                                                 
                                                     <div className="row justify-content-center">
                                                         <div className="col-4">
                                                             <div className="col-12 mb-3"><input className="form-control" type="text" name="Categoria" placeholder="Categoria" onChange={e => setCatName(e.target.value)} value={CatName}/></div>
-                                                            <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                            <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                                 CrearGenero(CatName,localStorage.getItem('Token'));
                                                                 showGeneros();
                                                                 setCatName("");   
                                                                 swal("exito!", "Se Creo un Genero!", "success"); 
                                                                 showGeneros();   
-                                                            }}>Registrar Genero</button></div>
+                                                            }}>Registrar Género</button></div>
                                                         </div>
                                                         <div className="col-4">
                                                             <div className="col-12 mb-3"><input readonly className="form-control" type="text" name="id" placeholder="id" onChange={e => setEidCatName(e.target.value)} value={EidCatName} readOnly={true}/></div>
                                                             <div className="col-12 mb-3"><input className="form-control" type="text" name="Categoria" placeholder="Categoria" onChange={e => setECatName(e.target.value)} value={ECatName}/></div>
-                                                            <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                            <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                                 EditGenero(EidCatName,ECatName,localStorage.getItem('Token'));
                                                                 showGeneros();
                                                                 setECatName("");        
                                                                 setEidCatName("");  
                                                                 swal("exito!", "Cambio de informacion fue un exito!", "success"); 
                                                                 showGeneros();         
-                                                            }}>Editar Genero</button></div>
+                                                            }}>Editar Género</button></div>
                                                         </div>
                                                     </div>
                                                     
                                                 
                                                 <hr />
                                                     <div class="title">
-                                                        <h4>Generos</h4>
+                                                        <h4>Géneros</h4>
                                                     </div>
                                                     
                                                     <div className='tabla'>
@@ -523,7 +516,7 @@ const Dashboard = () => {
                                                             <table class="table table-hover mt-1 content-table">
                                                                 <thead className='thead'>
                                                                 <tr className='columna'>
-                                                                    <th class="table-secondary one" scope="col">Genero</th>
+                                                                    <th class="table-secondary one" scope="col">Género</th>
                                                                     <th class="table-secondary one" scope="col">Editar</th>     
                                                                     <th class="table-secondary one" scope="col">Eliminar</th>
                                                                 </tr>
@@ -583,7 +576,7 @@ const Dashboard = () => {
                                                 <h3>Pelis</h3>
                                                 <div className="row justify-content-center">
                                                     <div className="col-7">
-                                                        <button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                        <button className="btn d-block w-100" type="submit" onClick={() => {
                                     
                                                         navigate('/NewMovie');  
                                                                                                         
@@ -599,22 +592,22 @@ const Dashboard = () => {
                                                                     
                                                                     className="col-4 ">
                                                                     
-                                                                        <div class="card">
-                                                                            <div class="card-body">
-                                                                                {Movie.Portada == "" ?
-                                                                                <img onClick={() => {
-                                                                                    alert(Movie.Name);
-                                                                                    navigate(`/EditPelicula/${Movie.Name}`)
-                                                                                }} style={{height:"200px", width:"150px"}} src={poster} alt="" />
-                                                                                :
-                                                                                <img onClick={() => {
-                                                                                    alert(Movie.Name);
-                                                                                    navigate(`/EditPelicula/${Movie.Name}`)
-                                                                                }} class="profileuser" src={`http://localhost:3001/${Movie.Portada}`}/>
-                                                                                }
+                                                                        <div class="card-DB">
+                                                                            {Movie.Portada == "" ?
+                                                                            <img onClick={() => {
+                                                                                alert(Movie.Name);
+                                                                                navigate(`/EditPelicula/${Movie.Name}`)
+                                                                            }} src={poster} alt="" />
+                                                                            :
+                                                                            <img onClick={() => {
+                                                                                alert(Movie.Name);
+                                                                                navigate(`/EditPelicula/${Movie.Name}`)
+                                                                            }} src={`http://localhost:3001/${Movie.Portada}`}/>
+                                                                            }
+                                                                            <div class="card-body-DB">
                                                                                 <h5 >Name: {Movie.Name}</h5>
-                                                                                <h4 >email: {Movie.Fecha}</h4>
-                                                                                <p> pass: {Movie.Portada}</p>
+                                                                                {/*<h4 >email: {Movie.Fecha}</h4>
+                                                                                <p> pass: {Movie.Portada}</p>*/}
                                                                                 <button className='btn-eliminar' onClick={() => {
                                                                                 //alert(`alert: ${Admins._id}`);   
 
@@ -651,39 +644,19 @@ const Dashboard = () => {
                                                     </div>
                                             </div>
                                             <div class="tab-pane" id="tab5">
-                                                <h3>Agregar, Editar y eliminar Cast</h3>
+                                                <h3>Agregar, editar y eliminar cast</h3>
                                                 
-                                                <h3>Admin Cast</h3>
+                                                <h3>Administrar Cast</h3>
                                                 <br />
                                                 
                                                 
                                                 <div className="row justify-content-center">
                                                 
                                                     <div className="col-4">
-                                                    <p>crear Cast</p>
+                                                    <p>Crear cast</p>
                                                         <div className="col-12 mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => setCastName(e.target.value)} value={CastName}/></div>
-                                                        <div className="col-12 mb-3"><p> imagen</p>
-                                                                <button onClick={InputClick}>Elegir imagen</button>
-                                                                {
-                                                                Castimg == "" ?
-                                                                 <div className="div">
-
-                                                                 </div>
-                                                                :
-                                                                <img class="profileuser" src={`${Castimg}`}/>
-                                                                }
-                                                                <input
-                                                            
-                                                                    type="file"
-                                                                    accept="image/png, image/gif, image/jpeg"
-                                                                    className="input-login"
-                                                                    id="pic-edit"
-                                                                    style={{display: 'none'}}
-                                                                    ref={fileInputRef} 
-                                                                    onChange={handleSubmit}
-                                                                /></div>
                                                         
-                                                        <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                        <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                             debugger
                                                             CrearCast(CastName,Castphoto,localStorage.getItem('Token')).then((response) => {
                                                                 const data = response.data;
@@ -702,21 +675,21 @@ const Dashboard = () => {
                                                             // setUserEmail("");               
                                                             // setUserPass("");         
                                                             // showAdmins(); 
-                                                        }}>Registrar Admin</button></div>
+                                                        }}>Registrar miembro</button></div>
                                                     </div>
                                                     <div className="col-4">
-                                                    <p>editar Cast</p>
+                                                    <p>Editar cast</p>
                                                         <div className="col-12 mb-3"><input className="form-control" type="text" name="username" placeholder="id" readonly onChange={e => seteditCastid(e.target.value)} value={editCastid} readOnly={true}/></div>
                                                         <div className="col-12 mb-3"><input className="form-control" type="text" name="username" placeholder="Username" onChange={e => seteditCastName(e.target.value)} value={editCastName}/></div>
                                                         
-                                                        <div className="col-12 mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                        <div className="col-12 mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                                                             EditCast(editCastid,editCastName,localStorage.getItem('Token'));
                                                             showCast();
                                                             seteditCastid("");
                                                             seteditCastName("");
                                                             swal("exito!", "Cambio de informacion fue un exito!", "success"); 
                                                             showCast();
-                                                        }}>Editar Nombre cast</button></div>
+                                                        }}>Editar miembro</button></div>
 
                                                         {
                                                            editCastid == "" ?
@@ -763,8 +736,8 @@ const Dashboard = () => {
                                                             <table class="table table-hover mt-1 content-table">
                                                                 <thead className='thead'>
                                                                 <tr className='columna'>
-                                                                    <th class="table-secondary one" scope="col">img</th>   
-                                                                    <th class="table-secondary one" scope="col">name</th>
+                                                                    <th class="table-secondary one" scope="col">Imagen</th>   
+                                                                    <th class="table-secondary one" scope="col">Usuario</th>
                                                                     
                                                                     <th class="table-secondary one" scope="col">Editar</th>      
                                                                     <th class="table-secondary one" scope="col">Eliminar</th>
@@ -777,7 +750,7 @@ const Dashboard = () => {
                                                                             onClick={() => {   
                                                                         }}>
                                                                             {Cast.photo == "" ?
-                                                                            <th className='one' scope="col"><img style={{height:"62px", width:"62px"}} src={avatar} alt="" /></th>
+                                                                            <th className='one' scope="col"><img className='profileuser' src={avatar} alt="" /></th>
                                                                             : 
                                                                             <th className='one' scope="col"><img class="profileuser" src={`http://localhost:3001/${Cast.photo}`}/></th>
                                                                             }
@@ -830,7 +803,7 @@ const Dashboard = () => {
 
                                             </div>
                                             <div class="tab-pane" id="tab6">
-                                                <h3>Agregar, Editar y eliminar plataforma</h3>
+                                                <h3>Agregar, editar y eliminar plataforma</h3>
                                                 <label className='text-login'>Plataforma</label>
                                                 <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
                                                     
@@ -838,20 +811,21 @@ const Dashboard = () => {
                                                         <div className="row justify-content-center">
                                                             <div className="col-6">
                                                                 <div className="col-12 text-center">
-                                                                    
+                                                                    <br></br>
                                                                     <input
                                                                         
                                                                         type="text"
-                                                                        className="input-login"
+                                                                        className="form-control" //input-login
                                                                         id="username"
                                                                         placeholder="Nombre Plataforma"
                                                                         onChange={e => setPlataformaName(e.target.value)} value={plataformaName}
-                                                                        />
+                                                                    />
+                                                                    <br></br>
 
                                                                 </div>
                                                                 <div className="col-12 d-flex flex-column">
 
-                                                                    <button  className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                                    <button  className="btn d-block w-100" type="submit" onClick={() => {
                                                                     
                                                                     CrearPlataforma(plataformaName,localStorage.getItem('Token'))
                                                                     showPlataformas(); 
@@ -867,28 +841,31 @@ const Dashboard = () => {
                                                             </div>
                                                             <div className="col-6">
                                                                 <div className="col-12 text-center">
-                                                                        <input
-                                                                            
-                                                                            type="text"
-                                                                            className="input-login"
-                                                                            id="username"
-                                                                            placeholder="Nombre Plataforma"
-                                                                            readOnly={true}
-                                                                            onChange={e => setEidPlataforma(e.target.value)} value={EidPlataforma}
-                                                                            />
-                                                                        <input
-                                                                            
-                                                                            type="text"
-                                                                            className="input-login"
-                                                                            id="username"
-                                                                            placeholder="Nombre Plataforma"
-                                                                            onChange={e => seteditPlataformaName(e.target.value)} value={editPlataformaName}
-                                                                            />
+                                                                    <br></br>
+                                                                    <input
+                                                                        
+                                                                        type="text"
+                                                                        className="form-control" //input-login
+                                                                        id="username"
+                                                                        placeholder="Identificador Plataforma"
+                                                                        readOnly={true}
+                                                                        onChange={e => setEidPlataforma(e.target.value)} value={EidPlataforma}
+                                                                    />
+                                                                    <br></br>      
+                                                                    <input
+                                                                        
+                                                                        type="text"
+                                                                        className="form-control" //input-login
+                                                                        id="username"
+                                                                        placeholder="Nombre Plataforma"
+                                                                        onChange={e => seteditPlataformaName(e.target.value)} value={editPlataformaName}
+                                                                    />
+                                                                    <br></br>
 
                                                                 </div>
                                                                 <div className="col-12 d-flex flex-column">
 
-                                                                    <button  className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                                                                    <button  className="btn d-block w-100" type="submit" onClick={() => {
                                                                    
                                                                     EditPlataforma(EidPlataforma,editPlataformaName,localStorage.getItem('Token'));
                                                                     showPlataformas();  
@@ -914,7 +891,7 @@ const Dashboard = () => {
                                                 
                                                  <hr />
                                                     <div class="title">
-                                                        <h4>Generos</h4>
+                                                        <h4>Plataformas</h4>
                                                     </div>
                                                     
                                                     <div className='tabla'>
@@ -922,7 +899,7 @@ const Dashboard = () => {
                                                             <table class="table table-hover mt-1 content-table">
                                                                 <thead className='thead'>
                                                                 <tr className='columna'>
-                                                                    <th class="table-secondary one" scope="col">Genero</th>
+                                                                    <th class="table-secondary one" scope="col">Plataforma</th>
                                                                     <th class="table-secondary one" scope="col">Editar</th>     
                                                                     <th class="table-secondary one" scope="col">Eliminar</th>
                                                                 </tr>
