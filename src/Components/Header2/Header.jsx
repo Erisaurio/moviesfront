@@ -127,11 +127,12 @@ const Header = () => {
                 </div>
             </nav> */}
 
-            <header class="p-3 navheader2 text-white">
+            <header class="navheader2 text-white">
                 <div class="container2">
-                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                        <div className="text-start">
-                            <a onClick={() => {navigate('/Main');}} class="d-flex align-items-center mb-2  text-white text-decoration-none">
+                    <div class="d-flex container3">
+                        <div class="d-flex">
+                        <div className="d-flex text-start align-items-center">
+                            <a onClick={() => {navigate('/Main');}} class="d-flex align-items-center text-white text-decoration-none">
                             <img src={Logo} className="logo"/>
                             </a>
                         </div>
@@ -139,74 +140,51 @@ const Header = () => {
                         {
                             localStorage.getItem('Rol') ==  "Admin" ?
                                 <ul class="nav col-12 col-lg-auto me-lg-5 mb-2 justify-content-center mb-md-0">
-                                    <li><a onClick={() => {navigate('/Main');}} class="nav-link px-2 text-white">Home</a></li>
-                                    <li><i className="fa-solid fa-clapperboard"></i><a onClick={() => {navigate('/Movies');}} class="nav-link px-2 text-white">Movies</a></li>
-                                    <li><a onClick={() => {navigate('/Login');}} class="nav-link px-2 text-white">Login</a></li>
-                                    <li><a onClick={() => {navigate('/Register');}} class="nav-link px-2 text-white">Register</a></li>
-                                    <li><a onClick={() => {navigate('/Landing');}} class="nav-link px-2 text-white">Landing</a></li>
-                                    <li><a onClick={() => {navigate('/*');}} class="nav-link px-2 text-white">Error</a></li>
-                                    <li><a onClick={() => {navigate('/Dashboard');}} class="nav-link px-2 text-white">Dashboard</a></li>
+                                    <a onClick={() => {navigate('/Main');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-house"></i><p>Home</p></li></a>
+                                    <a onClick={() => {navigate('/Movies');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-clapperboard"></i><p>Movies</p></li></a>
+                                    <a onClick={() => {navigate('/*');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-bug"></i><p>Error</p></li></a>
+                                    <a onClick={() => {navigate('/Dashboard');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-chart-line"></i><p>Dashboard</p></li></a>
                                     
                                 </ul>
                             :
                                 <ul class="nav col-12 col-lg-auto me-lg-5  mb-2 justify-content-center mb-md-0">
-                                    <li><a onClick={() => {navigate('/Main');}} class="nav-link px-2 text-white">Home</a></li>
-                                    <li><a onClick={() => {navigate('/Movies');}} class="nav-link px-2 text-white"><br />Movies</a></li>
-                                    <li><a onClick={() => {navigate('/Login');}} class="nav-link px-2 text-white">Login</a></li>
-                                    <li><a onClick={() => {navigate('/Register');}} class="nav-link px-2 text-white">Register</a></li>
-                                    <li><a onClick={() => {navigate('/Landing');}} class="nav-link px-2 text-white">Landing</a></li>
-                                    <li><a onClick={() => {navigate('/*');}} class="nav-link px-2 text-white">Error</a></li>
-                                    
-                                    
-                                    
+                                    <a onClick={() => {navigate('/Main');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-house"></i><p>Home</p></li></a>
+                                    <a onClick={() => {navigate('/Movies');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-clapperboard"></i><p>Movies</p></li></a>
+                                    <a onClick={() => {navigate('/*');}} class="nav-link nav-menu px-2"><li className='eachIcon'><i className="fa-solid fa-bug"></i><p>Error</p></li></a>
                                 </ul>
                                 
                         }
+                        </div>
 
-                        <br />
-
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0  me-lg-auto ml-2">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
-                        </form>
-
-                        <div class="text-end ">
                         {
-
                             dataUser != null && localStorage.getItem('UserId') != null ?
-                            <div className="row  align-items-center">
+                            <div className="text-end">
                                 
-                                <div className="col-5">
-                                    <p>UserName:</p>
-                                    <p style={{color: "white"}} > {localStorage.getItem("UserName")}</p>
-                                    <p>UserName:</p>
-                                    <p style={{color: "white"}} > {localStorage.getItem("Rol")}</p>
-                                    <button onClick={() => {
-                                            
-                                            navigate('/User');  
-
-                                            }}>Ver Perfil</button>
+                                <div className="five">
+                                    <label style={{color: "white"}} > {localStorage.getItem("UserName")}</label><br></br>
+                                    <label>Rol: </label><br></br>
+                                    <label style={{color: "white"}} > {localStorage.getItem("Rol")}</label>
                                 </div>
                             
-                            
-                                <div className="col-5">
+                                <div className="five">
+                                    <a onClick={() => { navigate('/User'); }}>
                                     {dataUser.filename == "" ?
-                                    <img style={{height:"62px", width:"62px"}} src={user} alt="" />
+                                        <img style={{height:"62px", width:"62px"}} src={user} alt="" />
                                     :
-                                    <img class="profileuser" src={`http://localhost:3001/${dataUser.filename}`}/> 
+                                        <img class="profileuser" src={`http://localhost:3001/${dataUser.filename}`}/> 
                                     }
+                                    </a>
                                 </div>
 
-                                <div className="col-2">
-                                    <div className="col-12">
-                                        <button onClick={() => {
-                                            localStorage.removeItem("UserName");
-                                            localStorage.removeItem("UserId");
-                                            localStorage.removeItem("Token");
-                                            localStorage.removeItem("Rol");
-                                            navigate('/');  
-
-                                            }}>Log Out</button>
-                                    </div>
+                                <div className="2">
+                                    <a onClick={() => {
+                                        localStorage.removeItem("UserName");
+                                        localStorage.removeItem("UserId");
+                                        localStorage.removeItem("Token");
+                                        localStorage.removeItem("Rol");
+                                        navigate('/');  
+                                    }} class="nav-link nav-menu px-2"><i className="fa-solid fa-power-off"></i><p>Log Out</p></a>
+                                        
                                 </div>
 
                             </div>
@@ -219,12 +197,10 @@ const Header = () => {
 
                                 }}>Login&Register</button>
                             </div>
-                            }
-                        </div>
+                        }
                     </div>
                 </div>
             </header>
-
 
             {/* end */}
 

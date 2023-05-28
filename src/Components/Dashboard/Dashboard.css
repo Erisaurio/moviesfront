@@ -51,6 +51,9 @@
 .nav-link {
     color: #191919;
 }
+.nav-menu{
+    color: white;
+}
 .nav-link:hover {
     color: #D05353;
 }
