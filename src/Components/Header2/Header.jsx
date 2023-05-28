@@ -169,7 +169,7 @@ const Header = () => {
                                 <div className="five">
                                     <a onClick={() => { navigate('/User'); }}>
                                     {dataUser.filename == "" ?
-                                        <img style={{height:"62px", width:"62px"}} src={user} alt="" />
+                                        <img class="profileuser" src={user} alt="" />
                                     :
                                         <img class="profileuser" src={`http://localhost:3001/${dataUser.filename}`}/> 
                                     }
