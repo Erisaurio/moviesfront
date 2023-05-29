@@ -310,6 +310,7 @@ const NewMovie = () => {
                                                 </div>
                                                 <div className="col-auto text-center detail tiempo">
                                                     <label>Duración: </label>
+                                                    <div style={{'display':'flex','justify-content':'left'}}>
                                                     <input
                                                         
                                                         type="number"
@@ -327,6 +328,7 @@ const NewMovie = () => {
                                                         placeholder="00"
                                                         onChange={e => setMin(e.target.value)} value={Minutos}
                                                     />
+                                                    </div>
                                                     
                                                 </div>
                                                 <div className="col-auto text-center detail">
