@@ -250,8 +250,8 @@ const NewMovie = () => {
 
                                 <div className="row">
                                     <div className="col-8">
-                                    <img style={{ width: 50, height: 50 }} src={CamaraIcon}  className='Iconp'/>
-                                    <h1 className='Pasos'>  Agrega una Pelicula</h1>
+                                    <img style={{ width: 45, height: 45 }} src={CamaraIcon}  className='Iconp'/>
+                                    <h1 className='TituloAdd'>  Agrega una Pelicula</h1>
 
                                   
                                     
