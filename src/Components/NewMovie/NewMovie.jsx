@@ -4,6 +4,8 @@ import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
 import pelis from '../Assets/pinocho.jpeg';
 import Lock from '../Assets/lock.png';
+import CamaraIcon from '../Assets/camaraicon.png';
+
 
 import {useState, useRef, useEffect} from "react"
 import { useNavigate } from 'react-router-dom';
@@ -78,7 +80,7 @@ const NewMovie = () => {
         setMovieIMGaux(URL.createObjectURL(ev.target.files[0]));
         
         EditMovieImg(Moviestorageid,formData);
-        swal("Paso 2 complatado!", "La portafa ya fue actualizada!", "success");
+        swal("Pelicula agregada", "La portada ya fue actualizada!", "success");
         navigate(`/EditPelicula/${Moviesnameaux}`)
         
         
@@ -233,7 +235,7 @@ const NewMovie = () => {
                             <div className="contenido" id="main">
                     
                                 <br/>
-                                {/*<div className="row">
+                                {/* <div className="row">
                 
                                     <div className="col-3" style={{backgroundColor: "lightblue"}}>col-4
                                     </div>
@@ -244,19 +246,26 @@ const NewMovie = () => {
                                     </div>
                                     <div className="col-3" style={{backgroundColor: "Green"}}>col-4
                                     </div>
-                                </div>*/}
+                                </div> */}
+
                                 <div className="row">
                                     <div className="col-8">
+                                    <img style={{ width: 50, height: 50 }} src={CamaraIcon}  className='Iconp'/>
+                                    <h1 className='Pasos'>  Agrega una Pelicula</h1>
+
+                                  
+                                    
                                         <div className='formulario'>
+                                        
                                             <div className='bloque-datos'>
-                                                <h1>Agrega una Película</h1>
+                                                <hr />
                                                 <div className="col-auto text-center detail">
-                                                    
-                                                    <input style={{'width':'100%'}}
+                                                <label>Título:  </label>
+                                                <input style={{'margin-left':'5px', 'width':'87%'}}
                                                         type="text"
                                                         className="input-login"
                                                         id="Moviename"
-                                                        placeholder="Nombre de la película"
+                                                        placeholder ="Titulo de la Película"
                                                         onChange={e => setNMovie(e.target.value)} value={NameMovie}
                                                     />
                         
@@ -278,20 +287,26 @@ const NewMovie = () => {
                                                             AddGenero(selectedG);
                                                             setshowG(GenerosAr);
                                                             
-                                                    }}>Agregar</button>
+                                                    }}>Guardar</button>
                                                 </div>
                                                 
-                                                <h1>Agrega una Sinopsis</h1>
+                                                
                                                 <div className="col-auto text-center detail">
-                                                    
-                                                    <input style={{'width':'100%'}}
+                                                <label>Sinopsis: </label > 
+                                               
+                                                 <textarea name="sinopsisT" id="Moviename" cols="30" rows="3" placeholder="Añade una Sinopsis"
+                                                 onChange={e => setSMovie(e.target.value)} value={Sinopsis}> 
+                                                
+                                                </textarea> 
+                                                  {/* <input style={{'margin-left':'5px', 'width':'83%'}}
                                                         type="text"
-                                                        className="input-login"
+                                                        className="input-sinopsis"
                                                         id="Moviename"
-                                                        placeholder="Nombre de la película"
+                                                        placeholder="Sinopsis de la película"
                                                         onChange={e => setSMovie(e.target.value)} value={Sinopsis}
-                                                    />
-                        
+                                                    />  */}
+                                                     
+                                                    
                                                 </div>
                                                 <div className="col-auto text-center detail tiempo">
                                                     <label>Duración: </label>
@@ -344,16 +359,17 @@ const NewMovie = () => {
                                                             AddCast(selectedC);
                                                             setCastshow(CastAr);
                                                             //showCastSelected();
-                                                    }}>Agregar</button>
+                                                    }}>Guardar</button>
                                                 </div>
 
                                                 <div className="d">
-                                                    <label htmlFor="">generos:</label>
+                                                    {/* <label htmlFor="">generos:</label> */}
 
                                                     {/* <label htmlFor="">* despues de agregar genero seleciona y elige ortra opcion el combo y se muestran</label>
                                                     <label htmlFor="">* No se la razon</label> */}
                                                     {   
                                                         ///mostrar los generos agregados
+                                                        
                                                         Generoshow.map((Genero, index) =>
                                                             <div className="col-4 ">
                                                                 <ul>
@@ -371,7 +387,7 @@ const NewMovie = () => {
                                                         ///mostrar los generos agregados
                                                     }
                                                     <hr /> 
-                                                    <label htmlFor="">Cast:</label>
+                                                     {/* <label htmlFor="">Cast:</label>  */}
                                                     {   
                                                         ///mostrar los generos agregados
                                                         Castshow.map((Cast, index) =>
@@ -382,7 +398,7 @@ const NewMovie = () => {
                                                             
                                                                         removeCast(index)
                                                                                     
-                                                                        }} > eliminar</a> 
+                                                                        }} > Eliminar </a> 
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -398,7 +414,7 @@ const NewMovie = () => {
                                                         debugger  
                                                         CrearMovie(NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr,CastAr,localStorage.getItem('Token')).then((response) => {
                                                             //navigate(`/EditPelicula/${NameMovie}`); 
-                                                            swal("Pelicula Creada!", "Puede proceder al paso 2 de elegir una portada (opcional)!", "success");
+                                                            swal("Información Agregada Correctamente", "Selecciona una imagen de portada", "success");
                                                             setMoviestorageid(response.data._id);
                                                             setMoviesnameaux(response.data.Name);              
                                                         })
@@ -406,7 +422,7 @@ const NewMovie = () => {
                                                             console.log(error);
                                                         }); 
                                                                 
-                                                    }}>Añadir Pelicual</button>
+                                                    }}>Crear Pelicula</button>
                                                 </div>
                                             </div>
                                             
@@ -414,7 +430,7 @@ const NewMovie = () => {
                                         
                                         </div>   
                                     </div>
-                                    <div className="col-4">
+                                    <div className="col-4" >
 
                                         {
                                             Moviestorageid != "" ?
@@ -433,8 +449,11 @@ const NewMovie = () => {
                                                             </div>
                                                             
                                                         </div>
-                                                        <div className="col-12 mb-3"><p> imagen</p>
-                                                                <button onClick={InputClick}>Elegir imagen</button>
+                                                        <div className="col-12 md-3">
+                                                             {/* <p> imagen</p> */}
+                                                             
+                                                             <p></p>
+                                                                <button   onClick={InputClick} style={{ width: "180px", height: "50px",}} >Elegir imagen</button>
                                                                 
                                                                <input
                                                             
@@ -455,7 +474,7 @@ const NewMovie = () => {
                                             :
                                             <div className='bloque-foto'>
                                                     
-                                                <h2>Crea una pelicual para pasar al paso 2 de selecionar img de la nueva pelicula</h2>
+                                                
 
                                             </div>
                                         }
