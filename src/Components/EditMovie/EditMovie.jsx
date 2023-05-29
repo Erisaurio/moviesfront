@@ -7,6 +7,7 @@ import {useState, useRef, useEffect} from "react"
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { GetMovie, UpdateMovie} from '../../Services/movies.service';
+import CamaraIcon2 from '../Assets/camaraicon2.png';
 
 import { EditMovieImg } from '../../Services/Storage';
 
@@ -235,9 +236,13 @@ const EditMovie = () => {
                         localStorage.getItem('Rol') != null && localStorage.getItem('Rol') == "Admin" ?
                         
                             <div className="div" id="main" class="container" >
+                                <img style={{ width: 45, height: 45 }} src={CamaraIcon2}  className='Iconp2'/>
                         
-                                <h1>movie:{Name}</h1>
-                                <div class="col-md-12 mt-3">
+                                <h1 className='TituloEdit'>Editar Pelicula</h1>
+                                
+                                
+                                <div class="col-md-12 mt-3" className='containerCards'>
+                                
                                     <div className="row">
                                         {   
                                             
@@ -256,8 +261,8 @@ const EditMovie = () => {
                                                                     
                         
                                                                     <br />
-                                                                    <p> imagen</p>
-                                                                    <button onClick={InputClick}>Editar imagen</button>
+                                                                    <p> </p>
+                                                                    <button onClick={InputClick} id='editpic'>Editar Imagen</button>
                                                                     <input
                                                                 
                                                                         type="file"
@@ -273,24 +278,48 @@ const EditMovie = () => {
                                                             </div>
                         
                                                             <br />
-                                                            <h5 >id: {dataMovie._id}</h5>
+                                                            
+                                                           <ul className='DatosEditar'  style={{listStyle: 'none'}}  >
+                                                            <li>
+                                                            <span >ID: {dataMovie._id}</span>
+                                                            </li>
+                                                            <li>
+                                                            <span> Titulo: {dataMovie.Name}</span>
+                                                            </li>
+                                                            <li>
+                                                            <span> Sinopsis: {dataMovie.Sinopsis}</span>
+                                                                
+                                                            </li>
+                                                            <li>
+                                                            <span>Fecha: {dataMovie.Fecha}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span> Duración: {dataMovie.Horas}:{dataMovie.Minutos}</span>
+                                                            </li>
+
+                                                           </ul>
+
+                                                           
+                                                            {/* <h5 >id: {dataMovie._id}</h5>
                                                             <h5 >Name: {dataMovie.Name}</h5>
                                                             <h4 >email: {dataMovie.Fecha}</h4>
                                                             <p> Sinopsis: {dataMovie.Sinopsis}</p>
                                                             <p> portada: {dataMovie.Portada}</p>
                                                             <p> tiempo: {dataMovie.Horas} : {dataMovie.Minutos}</p>
-                                                        
-                                                            <div className="">
+                                                         */}
+                                                            <div className="DatosEditar" >
                                                         
                                                                     {   
                                                                     DataGeneros != null ?
-
-                                                                    <ul>
+                                                                    
+                          
+                                                                    <ul  style={{listStyle: 'none'}}>
+                                                                        <span>Género: </span>
                                                                         {   
                                                                             
                                                                             DataGeneros.map((Generos, index) =>
                                                                                                                     
-                                                                                <li>{Generos}</li>
+                                                                                <li className='listaeditar'>{Generos}</li>
                                                                             ) 
                                                                         }
                                                                         
@@ -300,8 +329,8 @@ const EditMovie = () => {
                                                                     :
                                                                     
                                                                             
-                                                                    <ul>
-                                                                        <li>sin generos</li>
+                                                                    <ul  style={{listStyle: 'none'}}>
+                                                                        <li className='listaeditar'>Sin Género</li>
                                                                         
                                                                     </ul>
                                                                 
@@ -310,13 +339,13 @@ const EditMovie = () => {
 
         {   
                                                                     DataCasts != null ?
-                                                                    <ul>
-
+                                                                    <ul  style={{listStyle: 'none'}}>
+                                                                            <span>Cast: </span>
                                                                         {   
                                                                             
                                                                             DataCasts.map((Cast, index) =>
                                                                                                                     
-                                                                                <li>{Cast}</li>
+                                                                                <li className='listaeditar'>{Cast}</li>
                                                                             ) 
                                                                         }
                                                                         
@@ -326,8 +355,8 @@ const EditMovie = () => {
                                                                     :
                                                                     
                                                                             
-                                                                    <ul>
-                                                                        <li>sin Cast</li>
+                                                                    <ul style={{listStyle: 'none'}} >
+                                                                        <li className='listaeditar'>Sin Cast</li>
                                                                         
                                                                     </ul>
                                                                 
@@ -343,16 +372,18 @@ const EditMovie = () => {
                                             </div>
                                         
                                         }
-                                        
+                                       
+
                                         {
                                             
                                             <div className="col-8">
-                                                
+                                                {/* <h2>{Name}</h2> */}
                                             <div class="card2">
                                             <div class="card-body">
                     
-                                                <div className="col-auto text-center">
-                                                        <input
+                                                <div className="col-auto text-center detailEdit" >
+                                                        <label className='LabelEdit'>Título:  </label>
+                                                        <input style={{'margin-left':'5px', 'width':'60%'}}
                                                             
                                                             type="text"
                                                             className="input-login"
@@ -360,7 +391,20 @@ const EditMovie = () => {
                                                             placeholder="Name"
                                                             onChange={e => setNMovie(e.target.value)} value={NameMovie}
                                                         />
-                                                        <input
+                                                        <br />
+
+                                                        {/* AQUI PUSE LA SINOPSIS ERI*/}
+
+                                                        <label className='LabelEdit'>Sinopsis:  </label>
+                                                        <textarea className='textareaE' name="sinopsisE" id=" " cols="30" rows="3" placeholder="Añade una Sinopsis"
+                                                         onChange={e => setSMovie(e.target.value)} value={Sinopsis}> 
+                                                
+                                                        </textarea> 
+                                                        <br />
+
+
+                                                        <label className='LabelEdit'>Fecha de estreno:</label>
+                                                        <input style={{'margin-right':'110px', 'width':'60%'}}
                                             
                                                         type="date"
                                                         className="input-login"
@@ -368,8 +412,10 @@ const EditMovie = () => {
                                                         placeholder="Fecha de pelicula"
                                                         onChange={e => setFMovie(e.target.value)} value={FechaMovie}
                                                         />
+                                                        <br />
+                                                        <label className='LabelEdit' >Duración: </label>
                                                         
-                                                        <input
+                                                        <input style={{'margin-right':'60px', 'width':'25%'}}
                                                             
                                                             type="text"
                                                             className="input-login"
@@ -377,7 +423,8 @@ const EditMovie = () => {
                                                             placeholder="Password"
                                                             onChange={e => setHour(e.target.value)} value={Horas}
                                                         />
-                                                        <input
+                                                         
+                                                        <input style={{'margin-right':'50px' ,'width':'25%'}}
                                                             
                                                             type="text"
                                                             className="input-login"
@@ -388,7 +435,7 @@ const EditMovie = () => {
                                                         
                                                     </div>
 
-                                                    <div className="col-auto text-center detail genero">
+                                                    <div className="col-auto text-center detail generoEditar">
                                                         <select placeholder='Generos' name="Generos" onChange={e => setselectedG(e.target.value)}>
                                                             <option value="">Género</option>
                                                             {   
@@ -405,10 +452,10 @@ const EditMovie = () => {
                                                                 AddGenero(selectedG);
                                                                 setshowG(GenerosAr);
                                                                 
-                                                        }}>Agregar</button>
+                                                        }}>Guardar</button>
                                                     </div>
                                                         
-                                                    <div className="col-auto text-center detail Cast">
+                                                    <div className="col-auto text-center detail CastEdit">
                                                         <select placeholder='Cast' name="Cast" onChange={e => setselectedC(e.target.value)}>
                                                             <option value="">Cast</option>
                                                             {   
@@ -425,12 +472,12 @@ const EditMovie = () => {
                                                                 AddCast(selectedC);
                                                                 setCastshow(CastAr);
                                                                 //showCastSelected();
-                                                        }}>Agregar</button>
+                                                        }}>Guardar</button>
                                                     </div>
 
                                                     <div className="div">
 
-                                                        <label htmlFor="">generos:</label>
+                                                        {/* <label htmlFor="">Géneros:</label> */}
 
                                                         {/* <label htmlFor="">* despues de agregar genero seleciona y elige ortra opcion el combo y se muestran</label>
                                                         <label htmlFor="">* No se la razon</label> */}
@@ -438,13 +485,13 @@ const EditMovie = () => {
                                                             ///mostrar los generos agregados
                                                             Generoshow.map((Genero, index) =>
                                                                 <div className="col-4 ">
-                                                                    <ul>
+                                                                    <ul  style={{listStyle: 'none'}}>
                                                                         <li>{Genero} 
                                                                             <a  className="a_eliminar" onClick={() => {
                                                                 
                                                                             removeGenero(index)
                                                                                         
-                                                                            }} > eliminar</a> 
+                                                                            }} > Eliminar</a> 
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -452,13 +499,13 @@ const EditMovie = () => {
 
                                                             ///mostrar los generos agregados
                                                         }
-                                                        <hr /> 
-                                                        <label htmlFor="">Cast:</label>
+                                                        {/* <hr />  */}
+                                                        {/* <label htmlFor="">Cast:</label> */}
                                                         {   
                                                             ///mostrar los generos agregados
                                                             Castshow.map((Cast, index) =>
                                                                 <div className="col-4 ">
-                                                                    <ul>
+                                                                    <ul  style={{listStyle: 'none'}}>
                                                                         <li>{Cast} 
                                                                             <a className="a_eliminar" onClick={() => {
                                                                 
@@ -477,12 +524,12 @@ const EditMovie = () => {
                                                         <br />
 
                                                     </div>
-                                                    
-                                                    <button onClick={() => {
+                                                    <br />
+                                                    <button id='editmovieButton' onClick={() => {
                                                     debugger
                                                     UpdateMovie(dataMovie._id,NameMovie,FechaMovie,Sinopsis,Horas,Minutos,Portada,GenerosAr,CastAr,localStorage.getItem('Token'));
                                                     UpdateView();
-                                                    }}>Editar User</button>
+                                                    }}>Editar Pelicula</button>
                     
                     
                                             </div>
@@ -496,7 +543,7 @@ const EditMovie = () => {
                 
                 
                                 <br/>
-                                <div className="row">
+                               {/*  <div className="row">
                 
                                     <div className="col-3" style={{backgroundColor: "lightblue"}}>col-4
                                     </div>
@@ -507,7 +554,7 @@ const EditMovie = () => {
                                     </div>
                                     <div className="col-3" style={{backgroundColor: "Green"}}>col-4
                                     </div>
-                                </div>
+                                </div> */}
                 
                 
                             </div>

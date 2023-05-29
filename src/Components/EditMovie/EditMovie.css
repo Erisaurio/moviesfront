@@ -1,21 +1,125 @@
+.TituloEdit{
+    margin-top: 25px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 40px;
+    display: inline-block;
+}
+
+
+.containerCards{
+    background-color: white;
+    margin: 30px;
+    border-radius: 15px;
+}
 .cardMovieE{
     
     height: fit-content;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5); */
     margin: 30px;
+    
     text-align: center;
     overflow: hidden;
+    transition: all ease .3s;
+    outline: 2px solid #e7e6e6;
+    border-radius: 20px;
+}
+
+.DatosEditar{
+    text-align: left;
+    
+}
+.DatosEditar span , .listaeditar{
+    font-size: 15px;
+    
+}
+.Iconp2{
+   
+    margin-right: 5px;
+    margin-top:-25px;
+    
+}
+.listaeditar{
+    display: inline;
+}
+
+#editpic {
+    margin-top: 0;
+    
+    background-color: #191919;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #191919;
+    transition: all ease .3s;
+}
+#editmovieButton {
+    margin-top: 0;
+    margin-bottom: 60px;
+    background-color: #191919;
+    color: whitesmoke;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #191919;
     transition: all ease .3s;
 }
 
+
+.LabelEdit{
+    margin: 10px 0;
+    float: left;
+}
 .card2{
     
     height: fit-content;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
-    margin: 30px;
+    border-radius: 10px;
+    /*box-shadow: 2px 2px 12px rgba(71, 71, 71, 0.5);*/
+    margin: 10px;
     text-align: center;
     overflow: hidden;
     transition: all ease .3s;
+
+    
+
+  /* outline: 3px solid #e7e3e3; */
+  
+}
+.textareaE{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: -30px;
+    color: gray;
+    text-align: center;
+}
+
+.detailEdit input{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    color: rgb(155, 154, 154);
+   
+    text-align: center;
+    margin:10px;
+    
+}
+.generoEditar{
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
+}
+.CastEdit{
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .a_eliminar{
@@ -32,3 +136,4 @@ p.avisoT{
  .lock{
     width: 30%;
 }
+
