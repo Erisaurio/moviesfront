@@ -71,7 +71,7 @@ const Main = () => {
 
             <Header/>
 
-            <div className="div" id="main" class="container" >Main
+            <div className="div" id="main" class="container" >
 
                     <br/>
                    
@@ -287,21 +287,21 @@ const Main = () => {
                                         //alert(Movie.Name);
                                         navigate(`/DetallePelicula/${Movie.Name}`)
                                     }}
-                                    className="col-4 ">
+                                    className="col-3 ">
                                     
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <div class="card-DB">
+                                        <div class="card-body-DB">
                                             {Movie.Portada == "" ?
-                                            <img style={{height:"200px", width:"150px"}} src={poster} alt="" />
+                                            <img className='MainImg' src={poster} alt="" />
                                             :
-                                            <img class="profileuser" src={`http://localhost:3001/${Movie.Portada}`}/>
+                                            <img className='MainImg' src={`http://localhost:3001/${Movie.Portada}`}/>
                                             }
-                                            <h5 >Name: {Movie.Name}</h5>
-                                            <p> sipn: {Movie.Promedio}</p>
-                                            <p> {Movie.Horas}:{Movie.Minutos}</p>
-                                            <p> sipn: {Movie.Sinopsis}</p>
+                                            <h5> {Movie.Name}</h5>
+                                            <p> Calificación: {Movie.Promedio}</p>
+                                            <p> Tiempo: {Movie.Horas}:{Movie.Minutos} hrs.</p>
+                                            {/*<p> sipn: {Movie.Sinopsis}</p>
                                             <h4 >email: {Movie.Fecha}</h4>
-                                            <p> img: {Movie.Portada}</p>
+                                            <p> img: {Movie.Portada}</p>*/}
                                             
                                         </div>
                                     </div>
@@ -327,13 +327,13 @@ const Main = () => {
                                     <div class="card">
                                         <div class="card-body">
                                             {Cast.photo == "" ?
-                                            <img style={{height:"200px", width:"150px"}} src={avatar} alt="" />
+                                            <img class="profileuser" src={avatar} alt="" />
                                             :
                                             <img class="profileuser" src={`http://localhost:3001/${Cast.photo}`}/>
                                             }
                                             <h5 >Name: {Cast.name}</h5>
-                                            <p> img: {Cast.photo}</p>
-                                            
+                                            {/*<p> img: {Cast.photo}</p>*/}
+                                            <p> Película: {Cast.Movie}</p>
                                         </div>
                                     </div>
                                 
