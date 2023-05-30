@@ -31,9 +31,9 @@ export default function Router(){
            <Route path='/User' element={ <User />}/>
            <Route path='/Dashboard' element={ <Dashboard />}/>
            <Route path='/NewMovie' element={ <NewMovie />}/>    
-           <Route path='/Peli' element={ <Peli />}/>    
+           <Route path='/DetallePelicula/:Name' element={ <Peli />}/>    
            <Route path='/Movies' element={ <Movies />}/>
-           <Route path='/DetallePelicula/:Name' element={ <Movie />}/>
+           <Route path='/PruebaMovie/:Name' element={ <Movie />}/>
            <Route path='/EditPelicula/:Name' element={ <EditMovie />}/>
            <Route path='*' element={ <Error />}/>
            <Route path='/OurSpill' element={ <Errror />}/>  
