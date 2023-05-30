@@ -197,12 +197,12 @@ p.avisoT{
     cursor: pointer;
 }
 .card-DB img{
+    min-height: 270px;
     height: 275px;
     width: auto;   /*184px*/
 }
 .card-body-DB{
     padding: 10px;
-    min-height: 435px;
 }
 .card-DB:hover{
     transform: translate(-15px, -15px);

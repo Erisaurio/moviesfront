@@ -289,7 +289,7 @@ const Main = () => {
                                     }}
                                     className="col-3 ">
                                     
-                                    <div class="card-DB">
+                                    <div class="card-DB" style={{'min-height': '409px'}}>
                                         <div class="card-body-DB">
                                             {Movie.Portada == "" ?
                                             <img className='MainImg' src={poster} alt="" />
