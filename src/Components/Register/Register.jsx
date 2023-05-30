@@ -199,7 +199,7 @@ const Register = () => {
                 <div className="mb-3"><input className="form-control" type="password" name="password" placeholder="Password" onChange={e => setUserPass(e.target.value)} value={UserPass}/></div>
                 <div className="mb-3"></div>
                 <div className="mb-3"></div>
-                <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" style={{background: '#d15855'}} onClick={() => {
+                <div className="mb-3"><button className="btn d-block w-100" type="submit" onClick={() => {
                     CrearUser(UserName,UserEmail,UserPass,"User");    
                     swal("Registro exitoso!", "Da click para continuar!", "success");    
                     navigate('/Login');                                    

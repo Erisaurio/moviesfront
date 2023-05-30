@@ -3,11 +3,9 @@ import Logo from '../Assets/Logo.png';
 import Footer from '../HeaderYFooter/Footer';
 import {useState, useRef, useEffect} from "react"
 
-import {ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin} from '../../Services/user.service';
-import {getLoginT} from '../../Services/auth.service';
+import { ObtenerUsuarios, ObtenerUsuario, CrearUser, getLogin } from '../../Services/user.service';
+import { getLoginT } from '../../Services/auth.service';
 import { useNavigate } from 'react-router-dom';
-
-import swal from 'sweetalert';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -57,7 +55,7 @@ const Login = () => {
         }
     }
 
-    const IniciarSesion = async (LogEmail,LogPass) => {
+     const IniciarSesion = async (LogEmail,LogPass) => {
         
         try {
             //getLogin(LogEmail,LogPass)
@@ -117,8 +115,11 @@ const Login = () => {
                         <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
                             <form className="row d-flex flex-column g-3">
                                 <div className="col-auto text-center">
-                                    <label className='text-login'>Login</label>
+                                    <label className='text-login'>Inicia Sesión</label>
+                                   
                                 </div>
+
+                                
                                 <div className="col-auto text-center">
                                     <input
                                         type="text"
@@ -138,16 +139,18 @@ const Login = () => {
                                     />
                                 </div>
                                 <div className="col-12 d-flex flex-column">
-                                    <button  type="button" class="btn btn-primary" onClick={() => {
+                                    <button  type="button" class="btn btn-logIn btn-dark" onClick={() => {
                                           IniciarSesion(UserEmail,UserPass);                                                   
                                     }}>Ingresar</button>
-                                    
+
+                        <a className="sincuenta" onClick={() => {navigate('/Register');}}> ¿No tienes una cuenta? Registrate </a>
+                                   	
+                                    {/*  <a onClick={() => {navigate('/Landing');}}> Landing </a> */}
                                 </div>
-                                <a onClick={() => {navigate('/Landing');}}> Landing </a> 
                             </form>
                         </div>
 
-                        {/* <div class="col-md-12 mt-3">
+                        <div class="col-md-12 mt-3">
                             <div className="row">
                             {   
                                 dataUsers.map((User, index) =>
@@ -169,9 +172,7 @@ const Login = () => {
                                 ) 
                             }
                             </div>
-                        </div> */}
-
-
+                        </div>
                     </div>
                 </div>
             </div>

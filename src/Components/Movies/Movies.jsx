@@ -128,7 +128,7 @@ const Movies = () => {
 
                     <div className="col-2">
                         
-                    <button className="btn btn-primary d-block w-100"  style={{background: '#d15855'}} onClick={() => {
+                    <button className="btn d-block w-100" onClick={() => {
                         //alert(`alert: ${Generos._id}`);  
                         showMovies();                                      
                         }} >Quitar filtros</button>
@@ -182,25 +182,34 @@ const Movies = () => {
                                     //alert(Movie.Name);
                                     navigate(`/DetallePelicula/${Movie.Name}`)
                                 }}
-                                className="col-4 ">
+                                className="col-3 ">
                                 
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <div class="card-DB" style={{'min-height': '409px'}}>
+                                        <div class="card-body-DB">
                                             {Movie.Portada == "" ?
-                                            <img style={{height:"200px", width:"150px"}} src={poster} alt="" />
+                                            <img className='MainImg' src={poster} alt="" />
                                             :
-                                            <img class="profileuser" src={`http://localhost:3001/${Movie.Portada}`}/>
+                                            <img className='MainImg' src={`http://localhost:3001/${Movie.Portada}`}/>
                                             }
-                                            <h5 >Name: {Movie.Name}</h5>
-                                            <p> sipn: {Movie.Promedio}</p>
-                                            <p> {Movie.Horas}:{Movie.Minutos}</p>
-                                            <p> sipn: {Movie.Sinopsis}</p>
+                                            <h5> {Movie.Name}</h5>
+                                            <p> Calificación: {Movie.Promedio}</p>
+                                            <p> Tiempo: {Movie.Horas}:{Movie.Minutos} hrs.</p>
+                                            {/*<p> sipn: {Movie.Sinopsis}</p>
                                             <h4 >email: {Movie.Fecha}</h4>
-                                            <p> img: {Movie.Portada}</p>
+                                        <p> img: {Movie.Portada}</p>*/}
 
                                             {/* genero */}
                                             
-                                            <p>{Movie.Generos}</p>
+                                            {/*<p> {Movie.Generos}</p>*/}
+                                            <div className='genres'>
+                                                {Movie.Generos.length > 1 ? (
+                                                    Movie.Generos.map((genero, index) => (
+                                                    <label key={index}>{genero}</label>
+                                                    ))
+                                                ) : (
+                                                    <label>{Movie.Generos}</label>
+                                                )}
+                                            </div>
                                             
                                             {/* end */}
 

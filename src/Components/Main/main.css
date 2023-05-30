@@ -1,3 +1,13 @@
+.carousel-item {
+    height: 500px;
+    overflow: hidden;
+}
+
 .carrus img{
-    max-height: 700px;
+    height: auto;  /*700*/
+}
+
+.MainImg{
+    transform: translateY(-10px);
+    height: 275px;
 }

@@ -2,8 +2,9 @@ import './User.css'
 //import Header from "../HeaderYFooter/Header";
 import Header from "../Header2/Header";
 import Footer from '../HeaderYFooter/Footer';
+import Lock from '../Assets/lock.png';
 import {useState, useRef, useEffect} from "react"
-
+import lapizicon from '../Assets/lapiz.png';
 import { ObtenerUsuario, EditUser } from '../../Services/user.service';
 import { ObtenerComentaiosUsuario } from '../../Services/Comentarios';
 import { ObtenerCriticasUsuario } from '../../Services/Criticas';
@@ -165,25 +166,25 @@ const User = () => {
             {
                 localStorage.getItem('Token') != null && localStorage.getItem('UserId') != null ?
                     
-                    <div className="div" id="main" class="container" >Main
+                    <div className="div" id="main" class="container" >
 
                         <br/>
-                        <div className="row">
+                        <div className="rowUser">
 
                         <div class="col-md-12 mt-3">
                             <div className="row">
                             
                                 {     
-                                    <div className="col-6">
+                                    <div className="col-4">
                                             
-                                        <div class="card">
+                                        <div class="cardUser">
                                             <div class="card-body">
                                                 <div className="">
                                                     <div className="col-auto text-center">
                                                     <img class="profileuser" src={`http://localhost:3001/${dataUser.filename}`}/>
                                                         <br />
-                                                        <p> imagen</p>
-                                                        <button onClick={InputClick}>cambiar imagen</button>
+                                                        <p> </p>
+                                                        <button  id='editpicUser' onClick={InputClick}>Cambiar Imagen</button>
                                                         <input
                                                     
                                                             type="file"
@@ -199,10 +200,27 @@ const User = () => {
                                                 </div>
                                                 
                                                 <br />
-                                                <h5 >Name: {dataUser.name}</h5>
+                                                <ul className='DatosUser'  style={{listStyle: 'none'}}  >
+                                                            <li>
+                                                            <span >Nombre: {dataUser.name}</span>
+                                                            </li>
+                                                            <li>
+                                                            <span> Email: {dataUser.email}</span>
+                                                            </li>
+                                                            <li>
+                                                            <span> Contraseña: {dataUser.password}</span>
+                                                                
+                                                            </li>
+                                                            <li>
+                                                            <span>Rol: {dataUser.role}</span>
+                                                            </li>
+                                                           
+
+                                                           </ul>
+                                                {/* <h5 >Name: {dataUser.name}</h5>
                                                 <h4 >email: {dataUser.email}</h4>
                                                 <p> pass: {dataUser.password}</p>
-                                                <p> role: {dataUser.role} </p>
+                                                <p> role: {dataUser.role} </p> */}
                                             </div>
                                         </div>
                                         
@@ -210,14 +228,18 @@ const User = () => {
                                     
                                 }
                                 
-                            </div>
-                        {
-                            <div className="col-6">
+                                {
+                            <div className="col-8">
                                     
-                                <div class="card">
+                                <div class="cardUserEdit">
+                                
+                                    <h2 className='TituloUser'>Editar Información</h2>
+                                    <img style={{ width: 38, height: 38 }} src={lapizicon}  className='Lapiz'/>
                                 <div class="card-body">
-                                    <div className="col-auto text-center">
-                                        <input
+                                    <div className="col-auto text-center detailUser">
+
+                                        <label className='LabelUser'>Nuevo nombre:  </label>
+                                        <input style={{'margin-left':'10px', 'width':'60%'}}
                                             
                                             type="text"
                                             className="input-login"
@@ -225,7 +247,9 @@ const User = () => {
                                             placeholder="Name"
                                             onChange={e => setEdName(e.target.value)} value={EditName}
                                         />
-                                        <input
+                                        <br />
+                                        <label className='LabelUser'>Nuevo email:  </label>
+                                        <input style={{'margin-left':'30px', 'width':'60%'}}
                                             
                                             type="text"
                                             className="input-login"
@@ -233,18 +257,24 @@ const User = () => {
                                             placeholder="Email"
                                             onChange={e => setEdEmail(e.target.value)} value={EditEmail}
                                         />
-                                        <input
+                                        <br />
+                                        <label className='LabelUser'>Nueva contraseña:  </label>
+                                        <input style={{'margin-left':'-15px', 'width':'60%'}}
                                             
-                                            type="text"
+                                            type="password"
                                             className="input-login"
                                             id="Pass_Edit"
                                             placeholder="Password"
                                             onChange={e => setEdPass(e.target.value)} value={EditPass}
                                         />
+                                        <br />
+                                        <p className='LabelUser'> Rol: {dataUser.role} </p>
+                                        <br />
                                         </div>
                                             
-                                            <p> role: {dataUser.role} </p>
-                                            <button onClick={() => {
+                                            
+                                            
+                                            <button  id='edituserButton' onClick={() => {
                                             
                                             EditarUser(EditName,EditEmail,EditPass);
                                             
@@ -255,42 +285,51 @@ const User = () => {
                             </div>
                             }
                         </div>   
+                            </div>
+                        
 
                             
                         </div>
-
-                        <div className="Criticas">
+                        <br />
+                        
+                        <h4 className='TituloComents'>Comentarios</h4>
+                        
+                        <div className="CriticasU">
                         {
                             dataCriticas != null  ?
-                                <div className="row">
+                                <div className="row ">
                                     
                                     {
                                         dataCriticas.map((Critica, index) =>
                                         
                                         <div key={index}> 
                                         
-                                            <div className="col-12">
+                                            <div className="col-12 ">
                                                 <div className="row">
-                                                    <div className="col-6">
+                                                    <div className="col-3">
                                                     {Critica.UsuarioPic == "" ?
-                                                    <img style={{height:"62px", width:"62px"}} src={poster} alt="" />
+
+                                                    <img class="profileuser" src={poster} alt="" />
+
                                                     :
                                                     <img class="profileuser" src={  `http://localhost:3001/${Critica.UsuarioPic}`}/> 
                                                     }
+                                                    <div className="col-12"> {Critica.name} </div>
                                                     </div>
-                                                    <div className="col-3">{Critica.name}</div>
-                                                    <div className="col-6">
-                                                        <div className="row">
-                                                            <div className="col-12">{Critica.Comentario}</div>
-                                                            <div className="col-12">{Critica.Calificacion}</div>
-                                                        </div>
+                                                    <div className="col-6 comment" > "{Critica.Comentario}"
+                                                    <div className="col-12">  {Critica.Calificacion}</div>
                                                     </div>
-                                                    <div className="col-3">{Critica.createdAt}</div>
+                                                    
+                                                    <div className="col-2 fechacritica">{Critica.createdAt}</div>
                                                 </div>
                                             </div>
+                                            <br />
+                                            <hr />
+                                            
                                         </div>
                                                                         
                                         ) 
+                                        
                                     }
 
                                 </div>
@@ -299,8 +338,10 @@ const User = () => {
                                 </div>
                         }
                         </div>
-                        <hr />
-                        <div className="cometarios">
+
+                      <br />
+
+                        <div className="comentariosU">
                             {
                                 dataComentarios != null  ?
                                     <div >
@@ -311,20 +352,27 @@ const User = () => {
                                             <div key={index}> 
                                                 <div className="col-12">
                                                     <div className="row">
-                                                        <div className="col-6">
+                                                        <div className="col-3">
                                                             {comentario.UsuarioPic == "" ?
-                                                            <img style={{height:"62px", width:"62px"}} src={poster} alt="" />
-                                                            :
+
+                                                            <img class="profileuser" src={poster} alt="" />
+                                             :
                                                             <img class="profileuser" src={`http://localhost:3001/${comentario.UsuarioPic}`}/> 
                                                             }
+                                                            <div className="col-12 ">{comentario.name}</div>
                                                         </div>
-                                                        <div className="col-3">{comentario.name}</div>
-                                                        <div className="col-6">
-                                                        {comentario.Comentario}
+
+                                                        <div className="col-6 comment">
+                                                        "{comentario.Comentario}"
+                                                        
                                                         </div>
-                                                        <div className="col-3">{comentario.createdAt}</div>
+                                                        <div className="col-2 fechacritica">{comentario.createdAt}</div>
+                                                        
+                                                       
                                                     </div>
                                                 </div>
+                                                <br />
+                                            <hr />
                                             </div>
                                                                             
                                             ) 
@@ -337,13 +385,14 @@ const User = () => {
                             }
                         </div>
 
-
+<br />
                     </div>
 
                 :
-                    <div className="col-12" style={{backgroundColor: "lightblue"}}>
-                        <h3>No Inicio Session</h3>
-                    </div>
+                <div className="aviso">
+                <img src={Lock} className="lock" />
+               <p class="avisoT">Necesitas Iniciar Sesión</p>
+           </div>
             }
             <Footer/>
 
