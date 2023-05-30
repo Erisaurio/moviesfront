@@ -804,7 +804,7 @@ const Dashboard = () => {
                                             </div>
                                             <div class="tab-pane" id="tab6">
                                                 <h3>Agregar, editar y eliminar plataforma</h3>
-                                                <label className='text-login'>Plataforma</label>
+                                                <label className='text-DB'>Plataforma</label>
                                                 <div className='col-12 p-0 d-flex justify-content-center align-items-center'>
                                                     
                                                         

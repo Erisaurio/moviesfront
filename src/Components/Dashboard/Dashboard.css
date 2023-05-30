@@ -197,6 +197,7 @@ p.avisoT{
     cursor: pointer;
 }
 .card-DB img{
+    min-height: 270px;
     height: 275px;
     width: auto;   /*184px*/
 }
@@ -205,4 +206,9 @@ p.avisoT{
 }
 .card-DB:hover{
     transform: translate(-15px, -15px);
+}
+
+.text-DB{
+    font-size: 30px;
+    margin-top: 5px;
 }

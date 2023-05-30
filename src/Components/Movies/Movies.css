@@ -1,0 +1,21 @@
+.genres{
+    background-color: rgba(165, 42, 42, 0.5);
+    width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.genres label{
+    margin: 10px;
+}
+
+#Moviename{
+    text-align: left;
+    padding-left: 10px;
+    outline: none;
+}
+#Moviename:focus{
+    outline: 5px solid rgba(165, 42, 42, 0.3);
+    border-radius: 3px;
+}

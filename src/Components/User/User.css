@@ -1,9 +1,106 @@
 .profileuser{
+
     width: 80px;
     height: 80px;
     border-radius: 50%;
+
+}
+.rowUser{
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+.cardUser{
+    
+    height: fit-content;
+    /* box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5); */
+    margin: 30px;
+    
+    text-align: center;
+    overflow: hidden;
+    transition: all ease .3s;
+    outline: 2px solid #e7e6e6;
+    border-radius: 20px;
+}
+.TituloUser{
+    margin-top: 15px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 40px;
+    display: inline-block;
 }
 
+.Lapiz{
+    margin-right: 3px;
+    margin-top:-20px;
+}
+
+.cardUserEdit{
+    
+    height: fit-content;
+    border-radius: 10px;
+    /*box-shadow: 2px 2px 12px rgba(71, 71, 71, 0.5);*/
+    margin: 10px;
+    margin-top: 40px;
+    text-align: center;
+    overflow: hidden;
+    transition: all ease .3s;
+
+    
+
+  /* outline: 3px solid #e7e3e3; */
+  
+}
+#editpicUser {
+    margin-top: 0;
+    
+    background-color: #191919;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #191919;
+    transition: all ease .3s;
+}
+.DatosUser{
+    text-align: left;
+   
+    
+}
+.DatosUser span {
+    font-size: 15px;
+   
+}
+
+.LabelUser{
+    margin: 10px 0;
+    float: left;
+}
+.detailUser input{
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    color: rgb(155, 154, 154);
+   
+    text-align: center;
+    margin:10px;
+    
+}
+
+#edituserButton {
+    margin-top: 40px;
+    text-align: center;
+    background-color: #191919;
+    color: whitesmoke;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    border: 1px solid #191919;
+    transition: all ease .3s;
+
+}
 .aviso{
     margin: 80px;
   
@@ -14,3 +111,31 @@ p.avisoT{
  .lock{
     width: 30%;
 }
+
+.CriticasU{
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 40px;
+}
+
+.comentariosU{
+    margin: 20px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 40px;
+}
+.fechacritica{
+    font-size: 15px;
+    margin-top: 30px;
+}
+.comment{
+    font-size: 22px;
+  
+}
+
+.TituloComents{
+    color: #D15855;
+    font-weight: bold;
+}
+
