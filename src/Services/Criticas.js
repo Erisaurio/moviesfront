@@ -13,6 +13,19 @@ import { BaseCriticaUrl } from './constantes';
         return response?.data ? response?.data : null;
     }
 
+    const ObtenerCriticasUsuarioMovie = async (id_user, id_movie) => {
+        let response;
+    
+        try {
+            response = await axios.get(BaseCriticaUrl + '/Users/' + id_user + '/' + id_movie);
+        } catch (e) {
+            throw new Error(e.message)
+        }
+        
+        return response?.data ? response?.data : null;
+    }
+
+
     const ObtenerCriticasUsuario = async (id_user) => {
         let response;
     
@@ -24,6 +37,7 @@ import { BaseCriticaUrl } from './constantes';
         
         return response?.data ? response?.data : null;
     }
+
 
     const ObtenerCriticasMovie = async (id_movie) => {
         let response;
@@ -41,7 +55,7 @@ import { BaseCriticaUrl } from './constantes';
         let response;
         
         try {
-            response = await axios.post(BaseCriticaUrl, {   name: nombre, Comentario: comentario, movieid: movieid, 
+            response = await axios.post(BaseCriticaUrl, {name: nombre, Comentario: comentario, movieid: movieid, 
                 usuarioid: usuarioid, UsuarioPic: picture, Calificacion: Calif});
         } catch (e) {
             throw new Error(e.message)
@@ -51,4 +65,17 @@ import { BaseCriticaUrl } from './constantes';
     }
 
 
-export { ObtenerCritica, ObtenerCriticasUsuario, ObtenerCriticasMovie, CrearCritica};
+    const UpdateCritica = async (Calif, idCritica) => {
+        let response;
+        
+        try {
+            response = await axios.put(BaseCriticaUrl + "/" + idCritica, {Calificacion: Calif});
+        } catch (e) {
+            throw new Error(e.message)
+        }
+
+        return response?.data ? response?.data : null
+    }
+
+
+export { ObtenerCritica, ObtenerCriticasUsuario, ObtenerCriticasMovie, CrearCritica, ObtenerCriticasUsuarioMovie, UpdateCritica};
