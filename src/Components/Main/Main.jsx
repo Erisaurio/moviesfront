@@ -302,6 +302,7 @@ const Main = () => {
                                             {/*<p> sipn: {Movie.Sinopsis}</p>
                                             <h4 >email: {Movie.Fecha}</h4>
                                             <p> img: {Movie.Portada}</p>*/}
+
                                             
                                         </div>
                                     </div>

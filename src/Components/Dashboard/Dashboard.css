@@ -202,7 +202,13 @@ p.avisoT{
 }
 .card-body-DB{
     padding: 10px;
+    min-height: 435px;
 }
 .card-DB:hover{
     transform: translate(-15px, -15px);
+}
+
+.text-DB{
+    font-size: 30px;
+    margin-top: 5px;
 }
