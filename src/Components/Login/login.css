@@ -75,3 +75,7 @@ a:hover{
   font-size: 80%;
   margin-top: 20px;
 }
+
+.btn-logIn{
+  border: 1px solid transparent;
+}

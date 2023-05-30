@@ -5,8 +5,8 @@
 }
   
 .dashnav{
-    height: 160vh;
-    
+    /*height: 160vh;*/
+    min-height: 660px;
 }
 
 .sidebar {
@@ -21,7 +21,7 @@
 
 .pre-scrollable {
     width: 100%;
-    height: 400px;
+    /*height: 400px;*/
     max-height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -50,6 +50,9 @@
 
 .nav-link {
     color: #191919;
+}
+.nav-menu{
+    color: white;
 }
 .nav-link:hover {
     color: #D05353;
@@ -101,6 +104,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 .content-table {
     border-collapse: collapse;
@@ -110,7 +114,7 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    width: 90%;
+    /*width: 90%;*/
     background-color: #f9ebe6;
 }
 
@@ -159,4 +163,52 @@ p.avisoT{
 }
  .lock{
     width: 30%;
+}
+
+.btn{
+    color: white;
+    background-color: #D05353;
+}
+.btn:hover{
+    color: #D05353;
+    background-color: white;
+    border: 1px solid #D05353;
+}
+
+.form-control:focus{
+    color: #212529;
+    background-color: #fff;
+    border-color: #D05353;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(208, 83, 83, 0.25);
+}
+
+.card-DB{
+    width: 185px;
+    border-radius: 2%;
+    height: fit-content;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+    margin: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: all ease .3s;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+.card-DB img{
+    min-height: 270px;
+    height: 275px;
+    width: auto;   /*184px*/
+}
+.card-body-DB{
+    padding: 10px;
+}
+.card-DB:hover{
+    transform: translate(-15px, -15px);
+}
+
+.text-DB{
+    font-size: 30px;
+    margin-top: 5px;
 }

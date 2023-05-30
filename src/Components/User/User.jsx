@@ -308,7 +308,9 @@ const User = () => {
                                                 <div className="row">
                                                     <div className="col-3">
                                                     {Critica.UsuarioPic == "" ?
-                                                    <img style={{height:"90px", width:"90px"}} src={poster} alt="" />
+
+                                                    <img class="profileuser" src={poster} alt="" />
+
                                                     :
                                                     <img class="profileuser" src={  `http://localhost:3001/${Critica.UsuarioPic}`}/> 
                                                     }
@@ -352,8 +354,9 @@ const User = () => {
                                                     <div className="row">
                                                         <div className="col-3">
                                                             {comentario.UsuarioPic == "" ?
-                                                            <img style={{height:"90px", width:"90px"}} src={poster} alt="" />
-                                                            :
+
+                                                            <img class="profileuser" src={poster} alt="" />
+                                             :
                                                             <img class="profileuser" src={`http://localhost:3001/${comentario.UsuarioPic}`}/> 
                                                             }
                                                             <div className="col-12 ">{comentario.name}</div>
