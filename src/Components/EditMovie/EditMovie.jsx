@@ -87,12 +87,24 @@ const EditMovie = () => {
                 setDataMovie(response.data);
                 console.log(response);   
                 setNMovie(response.data.Name);
-                //setFMovie(response.data.Fecha);
                 setSMovie(response.data.Sinopsis);
                 setHour(response.data.Horas);
                 setMin(response.data.Minutos);  
                 
-                debugger
+                //debugger
+                
+                //console.log(response.data.Fecha)
+                var date = new Date(response.data.Fecha);
+                var year = date.toLocaleString("default", { year: "numeric" });
+                var month = date.toLocaleString("default", { month: "2-digit" });
+                var day = date.toLocaleString("default", { day: "2-digit" });
+
+                // Generate yyyy-mm-dd date string
+                var formattedDate = year + "-" + month + "-" + day;
+                console.log(formattedDate);
+                setFMovie(formattedDate);
+
+
                 setDataCasts(response.data.Cast);
                 setDataGeneros(response.data.Generos);
                 console.log(DataGeneros)  
